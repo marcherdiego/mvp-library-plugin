@@ -1,6 +1,5 @@
 package com.nerdscorner.mvp.events.mvp.interfaces.base;
 
-import com.nerdscorner.mvp.events.domain.manifest.Activity;
 import com.nerdscorner.mvp.events.mvp.BaseComponent;
 import com.nerdscorner.mvp.events.utils.interfaces.FileCreator;
 
@@ -64,10 +63,5 @@ public abstract class MvpComponent extends BaseComponent {
             new File(basePath, baseComponentDotJava).delete();
         }
         new File(basePath, screenName + componentDotJava).delete();
-    }
-
-    public void setBaseClass(Activity baseClass) {
-        this.baseComponentFullName = baseClass.getFullName(basePackage);
-        this.baseComponentName = baseClass.getUntrimmedName();
     }
 }

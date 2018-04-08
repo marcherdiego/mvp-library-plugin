@@ -7,8 +7,8 @@ import java.io.File;
 public class ModelComponent extends MvpComponent {
     private static final String BASE_MODEL_TEMPLATE = "/templates/interfaces/interface_model_template";
     private static final String MODEL_TEMPLATE = "/templates/interfaces/model_template";
-    private static final String BASE_MODEL_JAVA = "Model.java";
-    private static final String MODEL_JAVA = "ModelImpl.java";
+    private static final String BASE_MODEL_JAVA = "ModelInterface.java";
+    private static final String MODEL_JAVA = "Model.java";
 
     private static final String RELATIVE_PATH = File.separator + "ui" + File.separator + "mvp" + File.separator + "model";
 

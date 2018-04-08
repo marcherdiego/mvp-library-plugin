@@ -2,16 +2,14 @@
     <id>com.nerdscorner.mvp.events</id>
     <name>MVP Creator plugin</name>
     <version>1.0</version>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="diego@marcher.com.uy" url="http://www.demi.com.uy">Nerd's Corner</vendor>
 
     <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      Small plugin to build MVP skeletons
     ]]></description>
 
     <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      Initial release
     ]]>
     </change-notes>
 

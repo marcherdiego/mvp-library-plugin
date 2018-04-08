@@ -1,16 +1,14 @@
 package $PACKAGE_NAME$.ui.mvp.presenter.implementations;
 
-import $PACKAGE_NAME$.ui.mvp.model.interfaces.$SCREEN_NAME$Model;
-import $PACKAGE_NAME$.ui.mvp.presenter.interfaces.$SCREEN_NAME$Presenter;
-import $PACKAGE_NAME$.ui.mvp.view.interfaces.$SCREEN_NAME$View;
-$BASE_COMPONENT_FULL_NAME$
+import $PACKAGE_NAME$.ui.mvp.model.implementations.$SCREEN_NAME$Model;
+import $PACKAGE_NAME$.ui.mvp.view.implementations.$SCREEN_NAME$View;
+import $PACKAGE_NAME$.ui.mvp.presenter.interfaces.$SCREEN_NAME$PresenterInterface;
 
-public class $SCREEN_NAME$PresenterImpl$BASE_COMPONENT_NAME$ implements $SCREEN_NAME$Presenter {
-    private final $SCREEN_NAME$View view;
-    private final $SCREEN_NAME$Model model;
+import com.nerdscorner.mvplib.interfaces.presenter.BaseActivityPresenter;
 
-    public $SCREEN_NAME$PresenterImpl($SCREEN_NAME$View view, $SCREEN_NAME$Model model) {
-        this.view = view;
-        this.model = model;
+public class $SCREEN_NAME$Presenter extends BaseActivityPresenter<$SCREEN_NAME$View, $SCREEN_NAME$Model> implements $SCREEN_NAME$PresenterInterface {
+
+    public $SCREEN_NAME$Presenter($SCREEN_NAME$View view, $SCREEN_NAME$Model model) {
+        super(view, model);
     }
 }

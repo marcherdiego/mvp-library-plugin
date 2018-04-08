@@ -53,10 +53,6 @@ public class MvpBuilder {
                     new com.nerdscorner.mvp.events.mvp.interfaces.view.ViewComponent(fullPath, packageName, screenName);
             com.nerdscorner.mvp.events.mvp.interfaces.presenter.PresenterComponent presenterComponent =
                     new com.nerdscorner.mvp.events.mvp.interfaces.presenter.PresenterComponent(fullPath, packageName, screenName);
-            activityComponent.setBaseClass(activityBaseClass);
-            modelComponent.setBaseClass(modelBaseClass);
-            viewComponent.setBaseClass(viewBaseClass);
-            presenterComponent.setBaseClass(presenterBaseClass);
             boolean success =
                     activityComponent.build()
                             && modelComponent.build()
