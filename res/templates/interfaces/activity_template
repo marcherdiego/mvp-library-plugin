@@ -1,0 +1,27 @@
+package $PACKAGE_NAME$.ui.activities;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+$BASE_COMPONENT_FULL_NAME$
+
+import $PACKAGE_NAME$.ui.mvp.model.implementations.$SCREEN_NAME$ModelImpl;
+import $PACKAGE_NAME$.ui.mvp.model.interfaces.$SCREEN_NAME$Model;
+import $PACKAGE_NAME$.ui.mvp.presenter.implementations.$SCREEN_NAME$PresenterImpl;
+import $PACKAGE_NAME$.ui.mvp.presenter.interfaces.$SCREEN_NAME$Presenter;
+import $PACKAGE_NAME$.ui.mvp.view.implementations.$SCREEN_NAME$ViewImpl;
+import $PACKAGE_NAME$.ui.mvp.view.interfaces.$SCREEN_NAME$View;
+
+public class $SCREEN_NAME$Activity$BASE_COMPONENT_NAME$ {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //TODO set contentView
+
+        $SCREEN_NAME$Model model = new $SCREEN_NAME$ModelImpl();
+        $SCREEN_NAME$View view = new $SCREEN_NAME$ViewImpl(this);
+        $SCREEN_NAME$Presenter presenter = new $SCREEN_NAME$PresenterImpl(view, model);
+        model.setPresenter(presenter);
+        view.setPresenter(presenter);
+    }
+}
