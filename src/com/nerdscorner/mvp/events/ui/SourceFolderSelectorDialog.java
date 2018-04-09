@@ -60,8 +60,9 @@ public class SourceFolderSelectorDialog extends JDialog {
     }
 
     private void onOK() {
-        VirtualFile baseFolder = sourceFolders.getSelectedValue();
+        onCancel();
 
+        VirtualFile baseFolder = sourceFolders.getSelectedValue();
         PackageAndScreenInputDialog packageAndScreenInputDialog = new PackageAndScreenInputDialog(project, baseFolder, actionEvent);
         packageAndScreenInputDialog.pack();
         packageAndScreenInputDialog.setLocationRelativeTo(null);
@@ -69,11 +70,10 @@ public class SourceFolderSelectorDialog extends JDialog {
         packageAndScreenInputDialog.setTitle("Enter your package name and screen name");
         packageAndScreenInputDialog.getButtonOK().requestFocusInWindow();
         packageAndScreenInputDialog.setVisible(true);
-
-        dispose();
     }
 
     private void onCancel() {
+        setVisible(false);
         dispose();
     }
 }

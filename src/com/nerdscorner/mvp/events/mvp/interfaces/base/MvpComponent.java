@@ -40,7 +40,7 @@ public abstract class MvpComponent extends BaseComponent {
                 FileCreator.createFile(baseComponentTemplate, baseComponent, basePackage, screenName, baseComponentFullName, baseComponentName);
             }
 
-            //Create screenNameComponentImpl.java
+            //Create screenNameComponent.java
             InputStream componentTemplate = getClass().getResourceAsStream(this.componentTemplate);
             File component = new File(basePath + relativeImplPath(), componentDotJava);
             FileCreator.createFile(componentTemplate, component, basePackage, screenName, baseComponentFullName, baseComponentName);

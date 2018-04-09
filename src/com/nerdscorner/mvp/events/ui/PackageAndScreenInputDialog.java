@@ -6,28 +6,27 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.nerdscorner.mvp.events.domain.manifest.Activity;
 import com.nerdscorner.mvp.events.domain.manifest.Manifest;
 import com.nerdscorner.mvp.events.mvp.MvpBuilder;
 import com.nerdscorner.mvp.events.utils.GradleUtils;
 import com.nerdscorner.mvp.events.utils.ManifestUtils;
+import com.nerdscorner.mvp.events.utils.StringUtils;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.KeyStroke;
 
-import static com.nerdscorner.mvp.events.utils.GradleUtils.LIBRARY_DEPENDENCY_PACKAGE;
+import static com.nerdscorner.mvp.events.utils.GradleUtils.MVP_LIB_EVENTS_DEPENDENCY_PKG;
+import static com.nerdscorner.mvp.events.utils.GradleUtils.MVP_LIB_INTERFACES_DEPENDENCY_PKG;
 
 public class PackageAndScreenInputDialog extends JDialog {
     private static final String PROPERTY_PACKAGE_NAME = "package_name";
@@ -41,7 +40,6 @@ public class PackageAndScreenInputDialog extends JDialog {
     private JButton buttonCancel;
     private javax.swing.JTextField packageName;
     private javax.swing.JTextField screenName;
-    private JComboBox<Activity> existingActivity;
     private JRadioButton interfacesRadioButton;
     private JCheckBox includeLibraryDependency;
 
@@ -73,24 +71,6 @@ public class PackageAndScreenInputDialog extends JDialog {
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);
         String savedPackageName = propertiesComponent.getValue(PROPERTY_PACKAGE_NAME, "");
         packageName.setText(savedPackageName.equals("") ? (manifest == null ? "" : manifest.getPkg()) : savedPackageName);
-
-        loadActivities(rootFolder, existingActivity);
-        existingActivity.addActionListener(e -> screenName.setEnabled(existingActivity.getSelectedIndex() == 0));
-    }
-
-    private void loadActivities(VirtualFile rootFolder, JComboBox<Activity> comboBox) {
-        Activity[] activities = ManifestUtils.findActivities(rootFolder);
-        if (activities == null) {
-            return;
-        }
-        DefaultComboBoxModel<Activity> activitiesModel = new DefaultComboBoxModel<>();
-        Activity selectActivity = new Activity();
-        selectActivity.setName("Choose one");
-        activitiesModel.addElement(selectActivity);
-        for (Activity activity : activities) {
-            activitiesModel.addElement(activity);
-        }
-        comboBox.setModel(activitiesModel);
     }
 
     public JButton getButtonOK() {
@@ -98,26 +78,35 @@ public class PackageAndScreenInputDialog extends JDialog {
     }
 
     private void onOK() {
+        boolean interfaces = interfacesRadioButton.isSelected();
         boolean shouldIncludeLibraryDependency = false;
         if (includeLibraryDependency.isSelected()) {
-            shouldIncludeLibraryDependency = !isMvpLibInstalled();
+            shouldIncludeLibraryDependency = !isMvpLibInstalled(interfaces);
         }
 
-        boolean isNewScreen = existingActivity.getSelectedIndex() == 0;
         String basePackage = packageName.getText();
-        String screenName = isNewScreen ?
-                this.screenName.getText() :
-                ((Activity) existingActivity.getSelectedItem()).getName();
+        String screenName = StringUtils.asCamelCase(this.screenName.getText());
+        if (StringUtils.isEmpty(basePackage) || StringUtils.isEmpty(screenName)) {
+            //Show result
+            ResultDialog resultDialog = new ResultDialog("Please enter a valid package and screen name");
+            resultDialog.pack();
+            resultDialog.setLocationRelativeTo(null);
+            resultDialog.setTitle("MVP Builder Error");
+            resultDialog.setResizable(false);
+            resultDialog.setVisible(true);
+            return;
+        }
         String basePath = rootFolder.getPath() + File.separator + basePackage.replace(".", File.separator);
-        boolean interfaces = interfacesRadioButton.isSelected();
-        MvpBuilder mvpBuilder = new MvpBuilder(rootFolder, basePath, basePackage, screenName, interfaces, isNewScreen, shouldIncludeLibraryDependency);
+        MvpBuilder mvpBuilder = new MvpBuilder(rootFolder, basePath, basePackage, screenName, interfaces, shouldIncludeLibraryDependency);
         boolean success = mvpBuilder.build();
 
-        if (success) {
+        if (success && shouldIncludeLibraryDependency) {
             ActionManager am = ActionManager.getInstance();
             AnAction sync = am.getAction("Android.SyncProject");
             sync.actionPerformed(actionEvent);
         }
+
+        onCancel();
 
         //Show result
         ResultDialog resultDialog = new ResultDialog(success ? "MVP created successfully" : "An error occurred while creating files.");
@@ -126,7 +115,6 @@ public class PackageAndScreenInputDialog extends JDialog {
         resultDialog.setTitle("MVP Builder");
         resultDialog.setResizable(false);
         resultDialog.setVisible(true);
-        dispose();
 
         //Save plugin state
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);
@@ -134,10 +122,11 @@ public class PackageAndScreenInputDialog extends JDialog {
     }
 
     private void onCancel() {
+        setVisible(false);
         dispose();
     }
 
-    private boolean isMvpLibInstalled() {
-        return GradleUtils.hasDependency(rootFolder, LIBRARY_DEPENDENCY_PACKAGE);
+    private boolean isMvpLibInstalled(boolean interfaces) {
+        return GradleUtils.hasDependency(rootFolder, interfaces ? MVP_LIB_INTERFACES_DEPENDENCY_PKG : MVP_LIB_EVENTS_DEPENDENCY_PKG);
     }
 }

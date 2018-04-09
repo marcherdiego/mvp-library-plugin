@@ -18,6 +18,7 @@ public class ResultDialog extends JDialog {
     }
 
     private void onOK() {
+        setVisible(false);
         dispose();
     }
 }

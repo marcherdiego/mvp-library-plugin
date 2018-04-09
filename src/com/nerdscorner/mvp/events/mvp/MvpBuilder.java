@@ -20,7 +20,6 @@ public class MvpBuilder {
     private final String fullPath;
     private final String packageName;
     private final String screenName;
-    private final boolean isNewScreen;
     private final boolean interfaces;
     private final boolean shouldIncludeLibraryDependency;
     private Activity activityBaseClass;
@@ -32,12 +31,11 @@ public class MvpBuilder {
 
 
     public MvpBuilder(VirtualFile rootFolder, String fullPath, String packageName, String screenName, boolean interfaces,
-                      boolean isNewScreen, boolean shouldIncludeLibraryDependency) {
+                      boolean shouldIncludeLibraryDependency) {
         this.rootFolder = rootFolder;
         this.fullPath = fullPath;
         this.packageName = packageName;
         this.screenName = screenName;
-        this.isNewScreen = isNewScreen;
         this.interfaces = interfaces;
         this.shouldIncludeLibraryDependency = shouldIncludeLibraryDependency;
     }
@@ -78,9 +76,9 @@ public class MvpBuilder {
     }
 
     private boolean updateManifestAndGradle(boolean success) {
-        if (isNewScreen) {
-            savedManifest = ManifestUtils.getManifestString(rootFolder);
-            success = success && ManifestUtils.addActivityToManifest(packageName, screenName, rootFolder);
+        savedManifest = ManifestUtils.getManifestString(rootFolder);
+        success = success && ManifestUtils.addActivityToManifest(packageName, screenName, rootFolder);
+        if (shouldIncludeLibraryDependency) {
             savedGradleFile = GradleUtils.getGradleFileContent(rootFolder);
             success = success && GradleUtils.addDependency(rootFolder, interfaces ? MVP_LIB_INTERFACES_DEPENDENCY : MVP_LIB_EVENTS_DEPENDENCY);
         }
@@ -94,6 +92,7 @@ public class MvpBuilder {
             viewComponent.rollback();
             presenterComponent.rollback();
             ManifestUtils.restoreManifest(savedManifest, rootFolder.getPath());
+            GradleUtils.restoreGradleFile(savedGradleFile, rootFolder);
         }
     }
 

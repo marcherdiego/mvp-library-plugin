@@ -13,10 +13,12 @@ import java.io.InputStreamReader;
 import javax.annotation.Nullable;
 
 public final class GradleUtils {
-    public static final String LIBRARY_DEPENDENCY_PACKAGE = "com.nerdscorner.mvp:";
-
-    public static final String MVP_LIB_INTERFACES_DEPENDENCY = "'com.nerdscorner.mvp:interfaces:1.1.0'";
-    public static final String MVP_LIB_EVENTS_DEPENDENCY = "'com.nerdscorner.mvp:events:1.3.0'";
+    private static final String LATEST_INTERFACES_LIB_VERSION = "1.1.0";
+    private static final String LATEST_EVENTS_LIB_VERSION = "1.3.0";
+    public static final String MVP_LIB_INTERFACES_DEPENDENCY_PKG = "'com.nerdscorner.mvp:interfaces:";
+    public static final String MVP_LIB_EVENTS_DEPENDENCY_PKG = "'com.nerdscorner.mvp:events:";
+    public static final String MVP_LIB_INTERFACES_DEPENDENCY = MVP_LIB_INTERFACES_DEPENDENCY_PKG + LATEST_INTERFACES_LIB_VERSION + "'";
+    public static final String MVP_LIB_EVENTS_DEPENDENCY = MVP_LIB_EVENTS_DEPENDENCY_PKG + LATEST_EVENTS_LIB_VERSION + "'";
 
     private static final String COMPILE = "\tcompile ";
     private static final String DEPENDENCIES_BLOCK_BEGIN = "dependencies {";
@@ -83,5 +85,19 @@ public final class GradleUtils {
 
     public static boolean hasDependency(VirtualFile rootFolder, String dependency) {
         return getGradleFileContent(rootFolder).contains(dependency);
+    }
+
+    public static void restoreGradleFile(String savedGradleFile, VirtualFile rootFolder) {
+        if (savedGradleFile == null) {
+            return;
+        }
+        try {
+            File manifestFile = new File(getAppGradleFile(rootFolder).getPath());
+            FileWriter fileWriter = new FileWriter(manifestFile);
+            fileWriter.write(savedGradleFile);
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
