@@ -1,41 +1,32 @@
 <idea-plugin>
-    <id>com.nerdscorner.mvp.events</id>
+    <id>com.nerdscorner.mvp</id>
     <name>MVP Creator plugin</name>
-    <version>1.0</version>
+    <version>1.1</version>
     <vendor email="diego@marcher.com.uy" url="http://www.demi.com.uy">Nerd's Corner</vendor>
 
     <description><![CDATA[
-      Small plugin to build MVP skeletons
+      Small plugin to build MVP skeletons.<br>
+      This plugin if highly tied to this <em>MVP library</em>, check it out: <br>
+      https://github.com/marcherdiego/android_mvp
     ]]></description>
 
     <change-notes><![CDATA[
-      Initial release
+      Stable release
     ]]>
     </change-notes>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
     <idea-version since-build="145.0"/>
     <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.androidstudio</depends>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
-
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
-        <!--WIP-->
-        <action id="Create Btn" class="com.nerdscorner.mvp.events.CreateMvp" text="Create MVP skeleton">
+        <action id="Create Btn" class="com.nerdscorner.mvp.CreateMvp" text="Create MVP skeleton">
             <add-to-group group-id="ToolsMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl M" second-keystroke="shift ctrl M"/>
         </action>
-        <!--WIP-->
     </actions>
 
 </idea-plugin>
