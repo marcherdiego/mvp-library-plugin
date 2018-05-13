@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.nerdscorner.mvp</id>
     <name>MVP Creator plugin</name>
-    <version>1.2</version>
+    <version>1.3</version>
     <vendor email="diego@marcher.com.uy" url="http://www.demi.com.uy">Nerd's Corner</vendor>
 
     <description><![CDATA[
@@ -11,7 +11,7 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      Added presenter-typed Activity/Fragment
+      Updated gradle dependency versions
     ]]>
     </change-notes>
 
