@@ -1,8 +1,8 @@
 <idea-plugin>
     <id>com.nerdscorner.mvp</id>
     <name>MVP Creator plugin</name>
-    <version>1.3</version>
-    <vendor email="diego@marcher.com.uy" url="http://www.demi.com.uy">Nerd's Corner</vendor>
+    <version>1.4</version>
+    <vendor email="diego@marcher.com.uy" url="http://www.marcher.com.uy/">Nerd's Corner</vendor>
 
     <description><![CDATA[
       Small plugin to build MVP skeletons.<br>
