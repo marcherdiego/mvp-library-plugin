@@ -1,6 +1,6 @@
 package $PACKAGE_NAME$.ui.mvp.model;
 
-import com.nerdscorner.mvplib.events.model.BaseModel;
+import com.nerdscorner.mvplib.events.model.BaseEventsModel;
 
-public class $SCREEN_NAME$Model extends BaseModel {
+public class $SCREEN_NAME$Model extends BaseEventsModel {
 }

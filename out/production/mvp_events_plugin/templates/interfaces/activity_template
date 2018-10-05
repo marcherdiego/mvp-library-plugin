@@ -2,7 +2,6 @@ package $PACKAGE_NAME$.ui.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.NonNull;
 
 import com.nerdscorner.mvplib.interfaces.activity.BaseActivity;
 
@@ -16,12 +15,8 @@ public class $SCREEN_NAME$Activity extends BaseActivity<$SCREEN_NAME$Presenter> 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.<<YOUR_LAYOUT_HERE>>);
-    }
 
-    @NonNull
-    @Override
-    protected $SCREEN_NAME$Presenter getPresenter() {
-        return new $SCREEN_NAME$Presenter(
+        presenter = new $SCREEN_NAME$Presenter(
                 new $SCREEN_NAME$View(this),
                 new $SCREEN_NAME$Model()
         );

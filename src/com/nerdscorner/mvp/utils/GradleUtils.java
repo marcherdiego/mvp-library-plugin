@@ -16,8 +16,8 @@ import java.io.InputStreamReader;
 import javax.annotation.Nullable;
 
 public final class GradleUtils {
-    private static final String LATEST_INTERFACES_LIB_VERSION = "1.6.1";
-    private static final String LATEST_EVENTS_LIB_VERSION = "1.7.1";
+    private static final String LATEST_INTERFACES_LIB_VERSION = "1.7.4";
+    private static final String LATEST_EVENTS_LIB_VERSION = "1.8.4";
     public static final String MVP_LIB_INTERFACES_DEPENDENCY_PKG = "'com.nerdscorner.mvp:interfaces:";
     public static final String MVP_LIB_EVENTS_DEPENDENCY_PKG = "'com.nerdscorner.mvp:events:";
     public static final String MVP_LIB_INTERFACES_DEPENDENCY = MVP_LIB_INTERFACES_DEPENDENCY_PKG + LATEST_INTERFACES_LIB_VERSION + "'";
@@ -30,10 +30,10 @@ public final class GradleUtils {
     public static boolean addDependency(VirtualFile rootFolder, String dependency) {
         try {
             VirtualFile appGradleFile = getAppGradleFile(rootFolder);
-            String gradleFilegradleFileContent = getGradleFileContent(rootFolder);
-            int dependenciesBlockBegin = gradleFilegradleFileContent.indexOf(DEPENDENCIES_BLOCK_BEGIN);
+            String gradleFileContent = getGradleFileContent(rootFolder);
+            int dependenciesBlockBegin = gradleFileContent.indexOf(DEPENDENCIES_BLOCK_BEGIN);
             if (dependenciesBlockBegin == -1) {
-                dependenciesBlockBegin = gradleFilegradleFileContent.indexOf(DEPENDENCIES_BLOCK_BEGIN_ALT);
+                dependenciesBlockBegin = gradleFileContent.indexOf(DEPENDENCIES_BLOCK_BEGIN_ALT);
                 if (dependenciesBlockBegin == -1) {
                     throw new IllegalStateException("Malformed build.gradle file, dependencies block not recognized. Expected dependencies { ... }");
                 }
