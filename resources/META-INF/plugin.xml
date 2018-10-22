@@ -1,17 +1,18 @@
 <idea-plugin>
     <id>com.nerdscorner.mvp</id>
     <name>MVP Creator plugin</name>
-    <version>1.7</version>
+    <version>1.8</version>
     <vendor email="diego@marcher.com.uy" url="http://www.marcher.com.uy/">Nerd's Corner</vendor>
 
     <description><![CDATA[
-      Small plugin to build MVP skeletons.<br>
+      Small plugin to build MVP skeletons and avoid boilerplate.<br>
       This plugin if highly tied to this <em>MVP library</em>, check it out: <br>
       https://github.com/marcherdiego/android_mvp
     ]]></description>
 
     <change-notes><![CDATA[
       Updated gradle dependency versions
+      Added fragment MVP builder for events
     ]]>
     </change-notes>
 
