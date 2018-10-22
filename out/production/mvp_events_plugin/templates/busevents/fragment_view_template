@@ -1,0 +1,12 @@
+package $PACKAGE_NAME$.ui.mvp.view;
+
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+
+import com.nerdscorner.mvplib.events.view.BaseFragmentView;
+
+public class $SCREEN_NAME$View extends BaseFragmentView {
+    public $SCREEN_NAME$View(@NonNull Fragment fragment) {
+        super(fragment);
+    }
+}

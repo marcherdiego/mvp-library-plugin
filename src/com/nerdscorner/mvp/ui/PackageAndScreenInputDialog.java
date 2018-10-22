@@ -5,6 +5,8 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.nerdscorner.mvp.domain.manifest.Manifest;
+import com.nerdscorner.mvp.mvp.ActivityMvpBuilder;
+import com.nerdscorner.mvp.mvp.FragmentMvpBuilder;
 import com.nerdscorner.mvp.mvp.MvpBuilder;
 import com.nerdscorner.mvp.utils.GradleUtils;
 import com.nerdscorner.mvp.utils.ManifestUtils;
@@ -40,6 +42,8 @@ public class PackageAndScreenInputDialog extends JDialog {
     private javax.swing.JTextField screenName;
     private JRadioButton interfacesRadioButton;
     private JCheckBox includeLibraryDependency;
+    private JRadioButton activityRadioButton;
+    private JRadioButton fragmentRadioButton;
 
     public PackageAndScreenInputDialog(Project project, VirtualFile rootFolder, AnActionEvent actionEvent) {
         this.project = project;
@@ -77,6 +81,7 @@ public class PackageAndScreenInputDialog extends JDialog {
 
     private void onOK() {
         boolean interfaces = interfacesRadioButton.isSelected();
+        boolean activity = activityRadioButton.isSelected();
         boolean shouldIncludeLibraryDependency = false;
         if (includeLibraryDependency.isSelected()) {
             shouldIncludeLibraryDependency = !isMvpLibInstalled(interfaces);
@@ -95,7 +100,12 @@ public class PackageAndScreenInputDialog extends JDialog {
             return;
         }
         String basePath = rootFolder.getPath() + File.separator + basePackage.replace(".", File.separator);
-        MvpBuilder mvpBuilder = new MvpBuilder(rootFolder, basePath, basePackage, screenName, interfaces, shouldIncludeLibraryDependency);
+        MvpBuilder mvpBuilder;
+        if (activity) {
+            mvpBuilder = new ActivityMvpBuilder(rootFolder, basePath, basePackage, screenName, interfaces, shouldIncludeLibraryDependency);
+        } else {
+            mvpBuilder = new FragmentMvpBuilder(rootFolder, basePath, basePackage, screenName, interfaces, shouldIncludeLibraryDependency);
+        }
         boolean success = mvpBuilder.build();
 
         if (success && shouldIncludeLibraryDependency) {
