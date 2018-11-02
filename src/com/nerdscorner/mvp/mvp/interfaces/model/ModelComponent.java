@@ -5,8 +5,8 @@ import com.nerdscorner.mvp.mvp.interfaces.base.MvpComponent;
 import java.io.File;
 
 public class ModelComponent extends MvpComponent {
-    private static final String BASE_MODEL_TEMPLATE = "/templates/interfaces/interface_model_template";
-    private static final String MODEL_TEMPLATE = "/templates/interfaces/model_template";
+    private static final String BASE_MODEL_TEMPLATE = "/templates/interfaces/java/interface_model_template";
+    private static final String MODEL_TEMPLATE = "/templates/interfaces/java/model_template";
     private static final String BASE_MODEL_JAVA = "ModelInterface.java";
     private static final String MODEL_JAVA = "Model.java";
 

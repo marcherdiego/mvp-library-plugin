@@ -30,6 +30,8 @@ import static com.nerdscorner.mvp.utils.GradleUtils.MVP_LIB_INTERFACES_DEPENDENC
 
 public class PackageAndScreenInputDialog extends JDialog {
     private static final String PROPERTY_PACKAGE_NAME = "package_name";
+    private static final String ACTIVITY = "Activity";
+    private static final String FRAGMENT = "Fragment";
 
     private final Project project;
     private final VirtualFile rootFolder;
@@ -99,6 +101,7 @@ public class PackageAndScreenInputDialog extends JDialog {
             resultDialog.setVisible(true);
             return;
         }
+        screenName = sanitizeScreenName(screenName);
         String basePath = rootFolder.getPath() + File.separator + basePackage.replace(".", File.separator);
         MvpBuilder mvpBuilder;
         if (activity) {
@@ -125,6 +128,17 @@ public class PackageAndScreenInputDialog extends JDialog {
         //Save plugin state
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);
         propertiesComponent.setValue(PROPERTY_PACKAGE_NAME, basePackage);
+    }
+
+    private String sanitizeScreenName(String screenName) {
+        if (screenName.endsWith(ACTIVITY)) {
+            int activityIndex = screenName.lastIndexOf(ACTIVITY);
+            return screenName.substring(0, activityIndex);
+        } else if (screenName.endsWith(FRAGMENT)) {
+            int fragmentIndex = screenName.lastIndexOf(FRAGMENT);
+            return screenName.substring(0, fragmentIndex);
+        }
+        return screenName;
     }
 
     private void onCancel() {

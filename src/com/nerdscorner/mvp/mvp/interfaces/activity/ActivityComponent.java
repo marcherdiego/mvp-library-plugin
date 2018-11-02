@@ -6,7 +6,7 @@ import java.io.File;
 
 public class ActivityComponent extends MvpComponent {
 
-    private static final String ACTIVITY_TEMPLATE = "/templates/interfaces/activity_template";
+    private static final String ACTIVITY_TEMPLATE = "/templates/interfaces/java/activity_template";
     private static final String ACTIVITY_JAVA = "Activity.java";
 
     private static final String RELATIVE_PATH = File.separator + "ui" + File.separator + "activities";

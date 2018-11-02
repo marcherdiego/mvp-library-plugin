@@ -5,8 +5,8 @@ import com.nerdscorner.mvp.mvp.interfaces.base.MvpComponent;
 import java.io.File;
 
 public class ViewComponent extends MvpComponent {
-    private static final String BASE_INTERFACE_VIEW_TEMPLATE = "/templates/interfaces/interface_view_template";
-    private static final String VIEW_TEMPLATE = "/templates/interfaces/view_template";
+    private static final String BASE_INTERFACE_VIEW_TEMPLATE = "/templates/interfaces/java/interface_view_template";
+    private static final String VIEW_TEMPLATE = "/templates/interfaces/java/view_template";
     private static final String VIEW_JAVA = "ViewInterface.java";
     private static final String VIEW_IMPL_JAVA = "View.java";
 

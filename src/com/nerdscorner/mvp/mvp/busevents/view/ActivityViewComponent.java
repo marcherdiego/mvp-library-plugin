@@ -5,7 +5,7 @@ import com.nerdscorner.mvp.mvp.busevents.base.MvpComponent;
 import java.io.File;
 
 public class ActivityViewComponent extends MvpComponent {
-    private static final String VIEW_TEMPLATE = "/templates/busevents/activity_view_template";
+    private static final String VIEW_TEMPLATE = "/templates/busevents/java/activity_view_template";
     private static final String VIEW_JAVA = "View.java";
 
     private static final String RELATIVE_PATH = File.separator + "ui" + File.separator + "mvp" + File.separator + "view";

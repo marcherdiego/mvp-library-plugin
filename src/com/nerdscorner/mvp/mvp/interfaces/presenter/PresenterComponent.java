@@ -5,8 +5,8 @@ import com.nerdscorner.mvp.mvp.interfaces.base.MvpComponent;
 import java.io.File;
 
 public class PresenterComponent extends MvpComponent {
-    private static final String BASE_PRESENTER_TEMPLATE = "/templates/interfaces/interface_presenter_template";
-    private static final String PRESENTER_TEMPLATE = "/templates/interfaces/presenter_template";
+    private static final String BASE_PRESENTER_TEMPLATE = "/templates/interfaces/java/interface_presenter_template";
+    private static final String PRESENTER_TEMPLATE = "/templates/interfaces/java/presenter_template";
     private static final String BASE_PRESENTER_JAVA = "PresenterInterface.java";
     private static final String PRESENTER_JAVA = "Presenter.java";
 
