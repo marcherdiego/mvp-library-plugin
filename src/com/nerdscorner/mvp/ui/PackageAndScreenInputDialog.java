@@ -46,6 +46,8 @@ public class PackageAndScreenInputDialog extends JDialog {
     private JCheckBox includeLibraryDependency;
     private JRadioButton activityRadioButton;
     private JRadioButton fragmentRadioButton;
+    private JRadioButton javaRadioButton;
+    private JRadioButton kotlinRadioButton;
 
     public PackageAndScreenInputDialog(Project project, VirtualFile rootFolder, AnActionEvent actionEvent) {
         this.project = project;
@@ -105,11 +107,11 @@ public class PackageAndScreenInputDialog extends JDialog {
         String basePath = rootFolder.getPath() + File.separator + basePackage.replace(".", File.separator);
         MvpBuilder mvpBuilder;
         if (activity) {
-            mvpBuilder = new ActivityMvpBuilder(rootFolder, basePath, basePackage, screenName, interfaces, shouldIncludeLibraryDependency);
+            mvpBuilder = new ActivityMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected());
         } else {
-            mvpBuilder = new FragmentMvpBuilder(rootFolder, basePath, basePackage, screenName, interfaces, shouldIncludeLibraryDependency);
+            mvpBuilder = new FragmentMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected());
         }
-        boolean success = mvpBuilder.build();
+        boolean success = mvpBuilder.build(rootFolder, basePath, basePackage, screenName, interfaces);
 
         if (success && shouldIncludeLibraryDependency) {
             GradleUtils.performSync(actionEvent);

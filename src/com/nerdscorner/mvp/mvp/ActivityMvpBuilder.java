@@ -15,13 +15,12 @@ public class ActivityMvpBuilder extends MvpBuilder {
 
     private String savedManifest;
 
-    public ActivityMvpBuilder(VirtualFile rootFolder, String fullPath, String packageName, String screenName, boolean interfaces,
-                              boolean shouldIncludeLibraryDependency) {
-        super(rootFolder, fullPath, packageName, screenName, interfaces, shouldIncludeLibraryDependency);
+    public ActivityMvpBuilder(boolean shouldIncludeLibraryDependency, boolean isJava) {
+        super(shouldIncludeLibraryDependency, isJava);
     }
 
     @Override
-    public boolean build() {
+    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName, boolean interfaces) {
         if (interfaces) {
             //IS INTERFACES-LINK COMMUNICATION
             com.nerdscorner.mvp.mvp.interfaces.activity.ActivityComponent activityComponent =
@@ -37,8 +36,8 @@ public class ActivityMvpBuilder extends MvpBuilder {
                             && modelComponent.build()
                             && viewComponent.build()
                             && presenterComponent.build();
-            success = updateManifestAndGradle(success);
-            checkSuccessOrRollback(success, activityComponent, modelComponent, viewComponent, presenterComponent, savedManifest);
+            success = updateManifestAndGradle(rootFolder, packageName, screenName, interfaces, success);
+            checkSuccessOrRollback(rootFolder, success, activityComponent, modelComponent, viewComponent, presenterComponent, savedManifest);
             return success;
         } else {
             ActivityComponent activityComponent = new ActivityComponent(fullPath, packageName, screenName);
@@ -46,17 +45,17 @@ public class ActivityMvpBuilder extends MvpBuilder {
             ActivityViewComponent viewComponent = new ActivityViewComponent(fullPath, packageName, screenName);
             ActivityPresenterComponent presenterComponent = new ActivityPresenterComponent(fullPath, packageName, screenName);
             boolean success =
-                    activityComponent.build()
-                            && modelComponent.build()
-                            && viewComponent.build()
-                            && presenterComponent.build();
-            success = updateManifestAndGradle(success);
-            checkSuccessOrRollback(success, activityComponent, modelComponent, viewComponent, presenterComponent, savedManifest);
+                    activityComponent.build(isJava)
+                            && modelComponent.build(isJava)
+                            && viewComponent.build(isJava)
+                            && presenterComponent.build(isJava);
+            success = updateManifestAndGradle(rootFolder, packageName, screenName, interfaces, success);
+            checkSuccessOrRollback(rootFolder, success, activityComponent, modelComponent, viewComponent, presenterComponent, savedManifest);
             return success;
         }
     }
 
-    private boolean updateManifestAndGradle(boolean success) {
+    private boolean updateManifestAndGradle(VirtualFile rootFolder, String packageName, String screenName, boolean interfaces, boolean success) {
         savedManifest = ManifestUtils.getManifestString(rootFolder);
         success = success && ManifestUtils.addActivityToManifest(packageName, screenName, rootFolder);
         if (shouldIncludeLibraryDependency) {
@@ -66,7 +65,7 @@ public class ActivityMvpBuilder extends MvpBuilder {
         return success;
     }
 
-    private void checkSuccessOrRollback(boolean success, BaseComponent activityComponent, BaseComponent modelComponent,
+    private void checkSuccessOrRollback(VirtualFile rootFolder, boolean success, BaseComponent activityComponent, BaseComponent modelComponent,
                                         BaseComponent viewComponent, BaseComponent presenterComponent, String savedManifest) {
         if (!success) {
             activityComponent.rollback();

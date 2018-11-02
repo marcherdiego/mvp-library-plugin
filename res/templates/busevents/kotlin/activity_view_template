@@ -1,0 +1,6 @@
+package $PACKAGE_NAME$.ui.mvp.view
+
+import com.nerdscorner.mvplib.events.view.BaseActivityView
+import com.nerdscorner.mvplib.events.activity.BaseActivity
+
+class $SCREEN_NAME$View(activity: BaseActivity<*>) : BaseActivityView(activity)

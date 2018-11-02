@@ -5,8 +5,8 @@ import com.nerdscorner.mvp.mvp.busevents.base.MvpComponent;
 import java.io.File;
 
 public class ModelComponent extends MvpComponent {
-    private static final String MODEL_TEMPLATE = "/templates/busevents/java/model_template";
-    private static final String MODEL_JAVA = "Model.java";
+    private static final String MODEL_TEMPLATE = "/templates/busevents/" + LANGUAGE_PLACEHOLDER + "/model_template";
+    private static final String MODEL_JAVA = "Model." + LANGUAGE_EXTENSION_PLACEHOLDER;
 
     private static final String RELATIVE_PATH = File.separator + "ui" + File.separator + "mvp" + File.separator + "model";
 

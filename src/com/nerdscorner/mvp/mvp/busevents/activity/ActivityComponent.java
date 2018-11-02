@@ -8,8 +8,8 @@ public class ActivityComponent extends MvpComponent {
     public static final String PACKAGE_SUFFIX = ".ui.activities";
     public static final String ACTIVITY_SUFFIX = "Activity";
 
-    private static final String ACTIVITY_TEMPLATE = "/templates/busevents/java/activity_template";
-    private static final String ACTIVITY_JAVA = "Activity.java";
+    private static final String ACTIVITY_TEMPLATE = "/templates/busevents/" + LANGUAGE_PLACEHOLDER + "/activity_template";
+    private static final String ACTIVITY_JAVA = "Activity." + LANGUAGE_EXTENSION_PLACEHOLDER;
 
     private static final String RELATIVE_PATH = File.separator + "ui" + File.separator + "activities";
 

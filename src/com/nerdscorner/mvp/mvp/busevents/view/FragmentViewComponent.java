@@ -5,8 +5,8 @@ import com.nerdscorner.mvp.mvp.busevents.base.MvpComponent;
 import java.io.File;
 
 public class FragmentViewComponent extends MvpComponent {
-    private static final String VIEW_TEMPLATE = "/templates/busevents/java/fragment_view_template";
-    private static final String VIEW_JAVA = "View.java";
+    private static final String VIEW_TEMPLATE = "/templates/busevents/" + LANGUAGE_PLACEHOLDER + "/fragment_view_template";
+    private static final String VIEW_JAVA = "View." + LANGUAGE_EXTENSION_PLACEHOLDER;
 
     private static final String RELATIVE_PATH = File.separator + "ui" + File.separator + "mvp" + File.separator + "view";
 
