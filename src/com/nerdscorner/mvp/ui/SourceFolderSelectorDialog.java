@@ -1,5 +1,6 @@
 package com.nerdscorner.mvp.ui;
 
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
@@ -9,12 +10,20 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import javax.swing.*;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 import static com.nerdscorner.mvp.utils.Constants.BUILD;
 import static com.nerdscorner.mvp.utils.Constants.GENERATED;
 
 public class SourceFolderSelectorDialog extends JDialog {
+    private static final String PROPERTY_SOURCE_FOLDER_NAME = "source_folder_name";
+
     private final Project project;
     private AnActionEvent actionEvent;
     private JPanel contentPane;
@@ -47,22 +56,36 @@ public class SourceFolderSelectorDialog extends JDialog {
     }
 
     private void loadSrcFolders() {
+        PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);
+        String sourceFolderName = propertiesComponent.getValue(PROPERTY_SOURCE_FOLDER_NAME, "");
+
         DefaultListModel<VirtualFile> model = new DefaultListModel<>();
         VirtualFile[] sourceFolders = ProjectRootManager.getInstance(project).getContentSourceRoots();
+        int currentIndex = 0;
+        int selectedIndex = 0;
         for (VirtualFile sourceFolder : sourceFolders) {
             if (sourceFolder.getUrl().contains(GENERATED) || sourceFolder.getUrl().contains(BUILD)) {
                 continue;
             }
+            if (sourceFolder.getPath().equals(sourceFolderName)) {
+                selectedIndex = currentIndex;
+            }
             model.addElement(sourceFolder);
+            currentIndex++;
         }
         this.sourceFolders.setModel(model);
-        this.sourceFolders.setSelectedIndex(0);
+        this.sourceFolders.setSelectedIndex(selectedIndex);
     }
 
     private void onOK() {
         onCancel();
 
         VirtualFile baseFolder = sourceFolders.getSelectedValue();
+
+        //Save state
+        PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);
+        propertiesComponent.setValue(PROPERTY_SOURCE_FOLDER_NAME, baseFolder.getPath());
+
         PackageAndScreenInputDialog packageAndScreenInputDialog = new PackageAndScreenInputDialog(project, baseFolder, actionEvent);
         packageAndScreenInputDialog.pack();
         packageAndScreenInputDialog.setLocationRelativeTo(null);

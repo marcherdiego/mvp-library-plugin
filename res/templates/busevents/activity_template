@@ -2,7 +2,6 @@ package $PACKAGE_NAME$.ui.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.NonNull;
 
 import com.nerdscorner.mvplib.events.activity.BaseActivity;
 
