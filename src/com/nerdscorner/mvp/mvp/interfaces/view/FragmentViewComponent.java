@@ -4,15 +4,15 @@ import com.nerdscorner.mvp.mvp.interfaces.base.MvpComponent;
 
 import java.io.File;
 
-public class ViewComponent extends MvpComponent {
-    private static final String BASE_INTERFACE_VIEW_TEMPLATE = "/templates/interfaces/java/interface_view_template";
-    private static final String VIEW_TEMPLATE = "/templates/interfaces/java/view_template";
-    private static final String VIEW_JAVA = "ViewInterface.java";
-    private static final String VIEW_IMPL_JAVA = "View.java";
+public class FragmentViewComponent extends MvpComponent {
+    private static final String BASE_INTERFACE_VIEW_TEMPLATE = "/templates/interfaces/" + LANGUAGE_PLACEHOLDER + "/interface_view_template";
+    private static final String VIEW_TEMPLATE = "/templates/interfaces/" + LANGUAGE_PLACEHOLDER + "/fragment_view_template";
+    private static final String VIEW_JAVA = "ViewInterface." + LANGUAGE_EXTENSION_PLACEHOLDER;
+    private static final String VIEW_IMPL_JAVA = "View." + LANGUAGE_EXTENSION_PLACEHOLDER;
 
     private static final String RELATIVE_PATH = File.separator + "ui" + File.separator + "mvp" + File.separator + "view";
 
-    public ViewComponent(String basePath, String basePackage, String screenName) {
+    public FragmentViewComponent(String basePath, String basePackage, String screenName) {
         super(BASE_INTERFACE_VIEW_TEMPLATE, screenName + VIEW_JAVA, basePath, basePackage, screenName, VIEW_TEMPLATE, screenName + VIEW_IMPL_JAVA);
     }
 

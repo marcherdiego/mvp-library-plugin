@@ -4,8 +4,8 @@
     <list default="true" id="1d9aa841-5926-4252-ab9b-3f2dce3ebdbb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/BaseComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/BaseComponent.class" />
       <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/FragmentMvpBuilder.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/FragmentMvpBuilder.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/MvpBuilder.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/MvpBuilder.class" />
       <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/busevents/activity/ActivityComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/busevents/activity/ActivityComponent.class" />
       <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.class" />
       <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/busevents/fragment/FragmentComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/busevents/fragment/FragmentComponent.class" />
@@ -15,39 +15,29 @@
       <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/busevents/view/ActivityViewComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/busevents/view/ActivityViewComponent.class" />
       <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/busevents/view/FragmentViewComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/busevents/view/FragmentViewComponent.class" />
       <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/activity/ActivityComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/activity/ActivityComponent.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/base/MvpComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/base/MvpComponent.class" />
       <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/model/ModelComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/model/ModelComponent.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/presenter/PresenterComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/presenter/PresenterComponent.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/view/ViewComponent.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/view/ViewComponent.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog$1.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/busevents/activity_presenter_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/busevents/activity_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/busevents/activity_view_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/busevents/fragment_presenter_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/busevents/fragment_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/busevents/fragment_view_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/busevents/model_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/activity_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/interface_model_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/interface_presenter_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/interface_view_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/model_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/presenter_template" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/view_template" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/presenter/PresenterComponent.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/mvp/interfaces/view/ViewComponent.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/utils/interfaces/FileCreator.class" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/com/nerdscorner/mvp/utils/interfaces/FileCreator.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/java/interface_presenter_template" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/java/model_template" afterPath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/java/model_template" />
+      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/java/presenter_template" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/mvp_events_plugin/templates/interfaces/java/view_template" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/res/templates/interfaces/java/interface_presenter_template" afterPath="" />
       <change beforePath="$PROJECT_DIR$/res/templates/interfaces/java/model_template" afterPath="$PROJECT_DIR$/res/templates/interfaces/java/model_template" />
+      <change beforePath="$PROJECT_DIR$/res/templates/interfaces/java/presenter_template" afterPath="$PROJECT_DIR$/res/templates/interfaces/java/fragment_presenter_template" />
+      <change beforePath="$PROJECT_DIR$/res/templates/interfaces/java/view_template" afterPath="$PROJECT_DIR$/res/templates/interfaces/java/activity_view_template" />
       <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/BaseComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/BaseComponent.java" />
       <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/FragmentMvpBuilder.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/FragmentMvpBuilder.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/MvpBuilder.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/MvpBuilder.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/activity/ActivityComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/activity/ActivityComponent.java" />
       <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/fragment/FragmentComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/fragment/FragmentComponent.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/model/ModelComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/model/ModelComponent.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/presenter/ActivityPresenterComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/presenter/ActivityPresenterComponent.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/presenter/FragmentPresenterComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/presenter/FragmentPresenterComponent.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/view/ActivityViewComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/view/ActivityViewComponent.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/view/FragmentViewComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/view/FragmentViewComponent.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.form" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.form" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/activity/ActivityComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/activity/ActivityComponent.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/base/MvpComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/base/MvpComponent.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/model/ModelComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/model/ModelComponent.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/presenter/PresenterComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/presenter/ActivityPresenterComponent.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/view/ViewComponent.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/view/ActivityViewComponent.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/interfaces/FileCreator.java" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/interfaces/FileCreator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,101 +49,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MvpComponent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.java">
+      <file leaf-file-name="FragmentPresenterComponent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/presenter/FragmentPresenterComponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="37" column="98" lean-forward="false" selection-start-line="37" selection-start-column="98" selection-end-line="37" selection-end-column="98" />
+            <state relative-caret-position="102">
+              <caret line="8" column="53" lean-forward="true" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_presenter_template" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/activity_presenter_template">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="149" lean-forward="false" selection-start-line="8" selection-start-column="149" selection-end-line="8" selection-end-column="149" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="activity_template" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/templates/busevents/java/activity_template">
+        <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/activity_template">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="48" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_presenter_template" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/activity_presenter_template">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_template" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/activity_template">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="36" lean-forward="true" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+            <state relative-caret-position="408">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="activity_view_template" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/activity_view_template">
+        <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/activity_view_template">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="34" lean-forward="true" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+            <state relative-caret-position="51">
+              <caret line="3" column="63" lean-forward="false" selection-start-line="3" selection-start-column="63" selection-end-line="6" selection-end-column="72" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="fragment_presenter_template" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/fragment_presenter_template">
+        <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/fragment_presenter_template">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="39" lean-forward="true" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+            <state relative-caret-position="119">
+              <caret line="7" column="106" lean-forward="false" selection-start-line="7" selection-start-column="106" selection-end-line="7" selection-end-column="106" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="fragment_template" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/fragment_template">
+        <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/fragment_template">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+            <state relative-caret-position="0">
+              <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="fragment_view_template" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/fragment_view_template">
+        <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/fragment_view_template">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="interface_model_template" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/interface_model_template">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="34" lean-forward="true" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="interface_view_template" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/interface_view_template">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="model_template" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/model_template">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="35" lean-forward="true" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model_template" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/model_template">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="66" lean-forward="false" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -174,9 +164,16 @@
       <find>Impl</find>
       <find>Culo</find>
       <find>an error</find>
+      <find>;</find>
+      <find>$BASE_COMPONENT_FULL_NAME$</find>
+      <find>$BASE_COMPONENT_NAME$</find>
+      <find>com.example.diego.mvpplugintest</find>
+      <find>fragment_tem</find>
+      <find>Culito</find>
     </findStrings>
     <replaceStrings>
       <replace>com.nerdscorner.mvp.events.mvp.interfaces</replace>
+      <replace>$PACKAGE_NAME$</replace>
       <replace>$SCREEN_NAME$</replace>
     </replaceStrings>
   </component>
@@ -191,31 +188,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/res/templates/interfaces/interface_presenter_template" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/mvp/interfaces/model/ModelComponent.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/mvp/interfaces/presenter/PresenterComponent.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/mvp/interfaces/view/ViewComponent.java" />
-        <option value="$PROJECT_DIR$/res/templates/interfaces/model_template" />
-        <option value="$PROJECT_DIR$/res/templates/interfaces/view_template" />
-        <option value="$PROJECT_DIR$/res/templates/interfaces/presenter_template" />
-        <option value="$PROJECT_DIR$/res/templates/interfaces/interface_model_template" />
-        <option value="$PROJECT_DIR$/res/templates/interfaces/interface_view_template" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/ui/ResultDialog.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/mvp/interfaces/base/MvpComponent.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/mvp/interfaces/activity/ActivityComponent.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/ui/PackageAndScreenInputDialog.form" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/ui/SourceFolderSelectorDialog.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/mvp/MvpBuilder.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/utils/StringUtils.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/utils/GradleUtils.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/events/ui/PackageAndScreenInputDialog.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/CreateMvp.java" />
-        <option value="$PROJECT_DIR$/res/templates/interfaces/activity_template" />
-        <option value="$PROJECT_DIR$/res/templates/busevents/model_template" />
-        <option value="$PROJECT_DIR$/res/templates/busevents/fragment_template" />
         <option value="$PROJECT_DIR$/res/templates/busevents/fragment_presenter_template" />
         <option value="$PROJECT_DIR$/res/templates/busevents/fragment_view_template" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/interfaces/FileCreator.java" />
         <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/view/ViewComponent.java" />
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/res/templates/busevents/activity_template" />
@@ -231,9 +205,6 @@
         <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/model/ModelComponent.java" />
         <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/fragment/FragmentComponent.java" />
         <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/activity/ActivityComponent.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/FragmentMvpBuilder.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.java" />
         <option value="$PROJECT_DIR$/res/templates/busevents/kotlin/activity_presenter_template" />
         <option value="$PROJECT_DIR$/res/templates/busevents/kotlin/activity_template" />
         <option value="$PROJECT_DIR$/res/templates/busevents/kotlin/activity_view_template" />
@@ -241,7 +212,33 @@
         <option value="$PROJECT_DIR$/res/templates/busevents/kotlin/fragment_view_template" />
         <option value="$PROJECT_DIR$/res/templates/busevents/kotlin/fragment_template" />
         <option value="$PROJECT_DIR$/res/templates/busevents/kotlin/model_template" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/kotlin/activity_template" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/kotlin/interface_model_template" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/kotlin/interface_presenter_template" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/kotlin/interface_view_template" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/kotlin/model_template" />
         <option value="$PROJECT_DIR$/res/templates/interfaces/java/model_template" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/activity/ActivityComponent.java" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/model/ModelComponent.java" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/view/ViewComponent.java" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/interfaces/FileCreator.java" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.java" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/BaseComponent.java" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/base/MvpComponent.java" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.java" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/kotlin/view_template" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/presenter/PresenterComponent.java" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/kotlin/presenter_template" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/fragment/FragmentComponent.java" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/java/presenter_template" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/view/FragmentViewComponent.java" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/java/ac" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/presenter/ActivityPresenterComponent.java" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/FragmentMvpBuilder.java" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/java/fragment_template" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/java/fragment_view_template" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/java/fragment_presenter_template" />
+        <option value="$PROJECT_DIR$/res/templates/interfaces/java/activity_presenter_template" />
       </list>
     </option>
   </component>
@@ -320,14 +317,6 @@
               <item name="mvp_events_plugin" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="busevents" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp_events_plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp_events_plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="interfaces" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -337,6 +326,14 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="interfaces" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mvp_events_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mvp_events_plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mvp_events_plugin" type="b2602c69:ProjectViewProjectNode" />
@@ -479,7 +476,62 @@
               <item name="mvp" type="462c0819:PsiDirectoryNode" />
               <item name="mvp" type="462c0819:PsiDirectoryNode" />
               <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="activity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mvp_events_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mvp_events_plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="nerdscorner" type="462c0819:PsiDirectoryNode" />
+              <item name="mvp" type="462c0819:PsiDirectoryNode" />
+              <item name="mvp" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
               <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mvp_events_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mvp_events_plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="nerdscorner" type="462c0819:PsiDirectoryNode" />
+              <item name="mvp" type="462c0819:PsiDirectoryNode" />
+              <item name="mvp" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="fragment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mvp_events_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mvp_events_plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="nerdscorner" type="462c0819:PsiDirectoryNode" />
+              <item name="mvp" type="462c0819:PsiDirectoryNode" />
+              <item name="mvp" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mvp_events_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mvp_events_plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="nerdscorner" type="462c0819:PsiDirectoryNode" />
+              <item name="mvp" type="462c0819:PsiDirectoryNode" />
+              <item name="mvp" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="presenter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mvp_events_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mvp_events_plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="nerdscorner" type="462c0819:PsiDirectoryNode" />
+              <item name="mvp" type="462c0819:PsiDirectoryNode" />
+              <item name="mvp" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mvp_events_plugin" type="b2602c69:ProjectViewProjectNode" />
@@ -516,17 +568,18 @@
       <recent name="C:\Users\Diego\IdeaProjects\mvp_events_plugin\res\templates\busevents\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.nerdscorner.mvp.mvp.interfaces.presenter" />
+      <recent name="com.nerdscorner.mvp.mvp.interfaces.view" />
+      <recent name="com.nerdscorner.mvp.mvp.interfaces.fragment" />
       <recent name="com.nerdscorner.mvp.mvp.busevents.view" />
       <recent name="com.nerdscorner.mvp.mvp.busevents.presenter" />
-      <recent name="com.nerdscorner.mvp.mvp.busevents.activity" />
-      <recent name="com.nerdscorner.mvp.mvp" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Diego\IdeaProjects\mvp_events_plugin\res\templates\interfaces\java" />
+      <recent name="C:\Users\Diego\IdeaProjects\mvp_events_plugin\res\templates\interfaces\kotlin" />
       <recent name="C:\Users\Diego\IdeaProjects\mvp_events_plugin\res\templates\busevents\kotlin" />
       <recent name="C:\Users\Diego\IdeaProjects\mvp_events_plugin\res\templates\interfaces" />
       <recent name="C:\Users\Diego\IdeaProjects\mvp_events_plugin\res\templates\busevents" />
-      <recent name="C:\Users\Diego\IdeaProjects\mvp_events_plugin\src\com\nerdscorner\mvp\events" />
-      <recent name="C:\Users\Diego\IdeaProjects\mvp_events_plugin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -663,12 +716,12 @@
       <workItem from="1539260031032" duration="458000" />
       <workItem from="1540055636188" duration="4715000" />
       <workItem from="1540590320607" duration="15000" />
-      <workItem from="1541192713265" duration="5340000" />
+      <workItem from="1541192713265" duration="10489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46632000" />
+    <option name="totallyTimeSpent" value="51781000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="70" y="-8" width="1858" height="1096" extended-state="6" />
@@ -682,14 +735,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25506938" sideWeight="0.5211346" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34151548" sideWeight="0.4955506" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25754312" sideWeight="0.4788654" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24653149" sideWeight="0.4955506" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24012807" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25720385" sideWeight="0.4788654" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16184649" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28309232" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14407684" sideWeight="0.49777532" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497332" sideWeight="0.49777532" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -740,185 +793,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/presenter_template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/interface_model_template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="47" lean-forward="false" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/interface_view_template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/activity/ActivityComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/awt/event/ActionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="49" column="16" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/awt/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="1632" column="32" lean-forward="true" selection-start-line="1632" selection-start-column="32" selection-end-line="1632" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/awt/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="1013" column="19" lean-forward="false" selection-start-line="1013" selection-start-column="19" selection-end-line="1013" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/awt/Dialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="1004" column="19" lean-forward="false" selection-start-line="1004" selection-start-column="19" selection-end-line="1004" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/com/intellij/codeInsight/template/impl/TemplateSettings.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="61" column="29" lean-forward="false" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/ResultDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/CreateMvp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvp_events_plugin.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/templates/busevents/java/model_template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/templates/busevents/java/activity_presenter_template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" column="21" lean-forward="false" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
-          <folding>
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#853#854#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/templates/busevents/java/fragment_presenter_template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="89" lean-forward="false" selection-start-line="9" selection-start-column="89" selection-end-line="9" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/interfaces/FileCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/ManifestUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="71" column="54" lean-forward="false" selection-start-line="71" selection-start-column="54" selection-end-line="71" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/templates/busevents/java/activity_view_template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="59" lean-forward="false" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/templates/busevents/java/fragment_view_template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/activity_template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="78" lean-forward="false" selection-start-line="4" selection-start-column="78" selection-end-line="4" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/GradleUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1138">
-          <caret line="19" column="65" lean-forward="true" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/SourceFolderSelectorDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -938,16 +812,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="111" column="43" lean-forward="false" selection-start-line="111" selection-start-column="43" selection-end-line="111" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/view/FragmentViewComponent.java">
@@ -982,22 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/activity/ActivityComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/BaseComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/busevents/FileCreator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1014,55 +862,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/base/MvpComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/fragment/FragmentComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="88" lean-forward="false" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="50" column="62" lean-forward="false" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
-          <folding>
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#853#854#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/FragmentMvpBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="33" column="70" lean-forward="false" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/model/ModelComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="8" column="77" lean-forward="true" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="37" column="98" lean-forward="false" selection-start-line="37" selection-start-column="98" selection-end-line="37" selection-end-column="98" />
           <folding />
         </state>
       </provider>
@@ -1075,18 +878,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/activity_presenter_template">
+    <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/activity_template">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+        <state relative-caret-position="170">
+          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/activity_template">
+    <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/activity_presenter_template">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="true" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+        <state relative-caret-position="85">
+          <caret line="5" column="51" lean-forward="false" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -1094,7 +897,7 @@
     <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/activity_view_template">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="34" lean-forward="true" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+          <caret line="0" column="34" lean-forward="false" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1102,7 +905,7 @@
     <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/fragment_presenter_template">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="39" lean-forward="true" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1118,7 +921,7 @@
     <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/fragment_view_template">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="34" lean-forward="true" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+          <caret line="0" column="34" lean-forward="false" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1126,15 +929,278 @@
     <entry file="file://$PROJECT_DIR$/res/templates/busevents/kotlin/model_template">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="35" lean-forward="true" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/kotlin/interface_view_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="45" lean-forward="false" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/interfaces/FileCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="26" column="41" lean-forward="false" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/BaseComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/kotlin/activity_view_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/kotlin/interface_model_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="46" lean-forward="true" selection-start-line="0" selection-start-column="46" selection-end-line="0" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/interface_presenter_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/kotlin/interface_presenter_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="41" lean-forward="true" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/kotlin/activity_presenter_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/activity/ActivityComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="92" lean-forward="true" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/fragment/FragmentComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/model/ModelComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="116" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="111" column="45" lean-forward="true" selection-start-line="111" selection-start-column="45" selection-end-line="111" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/activity/ActivityComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/view/ActivityViewComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/kotlin/activity_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/kotlin/model_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/presenter/ActivityPresenterComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="113" lean-forward="false" selection-start-line="7" selection-start-column="113" selection-end-line="7" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/base/MvpComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="25" column="66" lean-forward="true" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/FragmentMvpBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="22" column="66" lean-forward="false" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
+          <folding>
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#770#771#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/fragment/FragmentComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/view/FragmentViewComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="58" lean-forward="false" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/interfaces/presenter/FragmentPresenterComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="53" lean-forward="true" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/activity_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/activity_view_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="63" lean-forward="false" selection-start-line="3" selection-start-column="63" selection-end-line="6" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/interface_model_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/interface_view_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/model_template">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="66" lean-forward="false" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/fragment_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/fragment_view_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/fragment_presenter_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="106" lean-forward="false" selection-start-line="7" selection-start-column="106" selection-end-line="7" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/templates/interfaces/java/activity_presenter_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="149" lean-forward="false" selection-start-line="8" selection-start-column="149" selection-end-line="8" selection-end-column="149" />
           <folding />
         </state>
       </provider>

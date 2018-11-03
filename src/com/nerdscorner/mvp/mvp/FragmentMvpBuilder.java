@@ -20,8 +20,21 @@ public class FragmentMvpBuilder extends MvpBuilder {
     public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName, boolean interfaces) {
         if (interfaces) {
             //IS INTERFACES-LINK COMMUNICATION
-            //TODO
-            return false;
+            com.nerdscorner.mvp.mvp.interfaces.fragment.FragmentComponent fragmentComponent =
+                    new com.nerdscorner.mvp.mvp.interfaces.fragment.FragmentComponent(fullPath, packageName, screenName);
+            com.nerdscorner.mvp.mvp.interfaces.model.ModelComponent modelComponent =
+                    new com.nerdscorner.mvp.mvp.interfaces.model.ModelComponent(fullPath, packageName, screenName);
+            com.nerdscorner.mvp.mvp.interfaces.view.FragmentViewComponent fragmentViewComponent =
+                    new com.nerdscorner.mvp.mvp.interfaces.view.FragmentViewComponent(fullPath, packageName, screenName);
+            com.nerdscorner.mvp.mvp.interfaces.presenter.FragmentPresenterComponent fragmentPresenterComponent =
+                    new com.nerdscorner.mvp.mvp.interfaces.presenter.FragmentPresenterComponent(fullPath, packageName, screenName);
+            boolean success =
+                    fragmentComponent.build(isJava)
+                            && modelComponent.build(isJava)
+                            && fragmentViewComponent.build(isJava)
+                            && fragmentPresenterComponent.build(isJava);
+            checkSuccessOrRollback(rootFolder, success, fragmentComponent, modelComponent, fragmentViewComponent, fragmentPresenterComponent);
+            return success;
         } else {
             FragmentComponent fragmentComponent = new FragmentComponent(fullPath, packageName, screenName);
             ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName);

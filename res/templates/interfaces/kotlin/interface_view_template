@@ -1,0 +1,3 @@
+package $PACKAGE_NAME$.ui.mvp.view.interfaces
+
+interface $SCREEN_NAME$ViewInterface

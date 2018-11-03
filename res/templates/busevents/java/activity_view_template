@@ -4,7 +4,6 @@ import com.nerdscorner.mvplib.events.view.BaseActivityView;
 import com.nerdscorner.mvplib.events.activity.BaseActivity;
 
 public class $SCREEN_NAME$View extends BaseActivityView {
-
     public $SCREEN_NAME$View(BaseActivity activity) {
         super(activity);
     }

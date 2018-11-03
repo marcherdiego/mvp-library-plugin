@@ -9,13 +9,10 @@ import java.io.InputStreamReader;
 
 public class FileCreator {
 
-    private static final String BASE_COMPONENT_FULL_NAME = "$BASE_COMPONENT_FULL_NAME$";
-    private static final String BASE_COMPONENT_NAME = "$BASE_COMPONENT_NAME$";
     private static final String PACKAGE_NAME_KEY = "$PACKAGE_NAME$";
     private static final String SCREEN_NAME_KEY = "$SCREEN_NAME$";
 
-    public static void createFile(InputStream inputStream, File file, String basePackage, String screenName, String baseComponentFullName,
-                                  String baseComponentName) throws IOException {
+    public static void createFile(InputStream inputStream, File file, String basePackage, String screenName) throws IOException {
         if (!file.exists()) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line;
@@ -28,9 +25,7 @@ public class FileCreator {
             String parsedContent = baseComponentContent
                     .toString()
                     .replace(PACKAGE_NAME_KEY, basePackage)
-                    .replace(SCREEN_NAME_KEY, screenName)
-                    .replace(BASE_COMPONENT_FULL_NAME, baseComponentFullName == null ? "" : "import " + baseComponentFullName + ";")
-                    .replace(BASE_COMPONENT_NAME, baseComponentName == null ? "" : " extends " + baseComponentName);
+                    .replace(SCREEN_NAME_KEY, screenName);
 
             file.getParentFile().mkdirs();
             FileWriter fileWriter = new FileWriter(file);

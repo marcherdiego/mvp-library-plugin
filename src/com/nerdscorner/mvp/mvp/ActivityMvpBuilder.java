@@ -27,17 +27,17 @@ public class ActivityMvpBuilder extends MvpBuilder {
                     new com.nerdscorner.mvp.mvp.interfaces.activity.ActivityComponent(fullPath, packageName, screenName);
             com.nerdscorner.mvp.mvp.interfaces.model.ModelComponent modelComponent =
                     new com.nerdscorner.mvp.mvp.interfaces.model.ModelComponent(fullPath, packageName, screenName);
-            com.nerdscorner.mvp.mvp.interfaces.view.ViewComponent viewComponent =
-                    new com.nerdscorner.mvp.mvp.interfaces.view.ViewComponent(fullPath, packageName, screenName);
-            com.nerdscorner.mvp.mvp.interfaces.presenter.PresenterComponent presenterComponent =
-                    new com.nerdscorner.mvp.mvp.interfaces.presenter.PresenterComponent(fullPath, packageName, screenName);
+            com.nerdscorner.mvp.mvp.interfaces.view.ActivityViewComponent activityViewComponent =
+                    new com.nerdscorner.mvp.mvp.interfaces.view.ActivityViewComponent(fullPath, packageName, screenName);
+            com.nerdscorner.mvp.mvp.interfaces.presenter.ActivityPresenterComponent activityPresenterComponent =
+                    new com.nerdscorner.mvp.mvp.interfaces.presenter.ActivityPresenterComponent(fullPath, packageName, screenName);
             boolean success =
-                    activityComponent.build()
-                            && modelComponent.build()
-                            && viewComponent.build()
-                            && presenterComponent.build();
+                    activityComponent.build(isJava)
+                            && modelComponent.build(isJava)
+                            && activityViewComponent.build(isJava)
+                            && activityPresenterComponent.build(isJava);
             success = updateManifestAndGradle(rootFolder, packageName, screenName, interfaces, success);
-            checkSuccessOrRollback(rootFolder, success, activityComponent, modelComponent, viewComponent, presenterComponent, savedManifest);
+            checkSuccessOrRollback(rootFolder, success, activityComponent, modelComponent, activityViewComponent, activityPresenterComponent, savedManifest);
             return success;
         } else {
             ActivityComponent activityComponent = new ActivityComponent(fullPath, packageName, screenName);

@@ -1,4 +1,0 @@
-package $PACKAGE_NAME$.ui.mvp.presenter.interfaces;
-
-public interface $SCREEN_NAME$PresenterInterface {
-}

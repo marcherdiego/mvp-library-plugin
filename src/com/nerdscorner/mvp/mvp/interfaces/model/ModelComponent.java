@@ -5,10 +5,10 @@ import com.nerdscorner.mvp.mvp.interfaces.base.MvpComponent;
 import java.io.File;
 
 public class ModelComponent extends MvpComponent {
-    private static final String BASE_MODEL_TEMPLATE = "/templates/interfaces/java/interface_model_template";
-    private static final String MODEL_TEMPLATE = "/templates/interfaces/java/model_template";
-    private static final String BASE_MODEL_JAVA = "ModelInterface.java";
-    private static final String MODEL_JAVA = "Model.java";
+    private static final String BASE_MODEL_TEMPLATE = "/templates/interfaces/" + LANGUAGE_PLACEHOLDER + "/interface_model_template";
+    private static final String MODEL_TEMPLATE = "/templates/interfaces/" + LANGUAGE_PLACEHOLDER + "/model_template";
+    private static final String BASE_MODEL_JAVA = "ModelInterface." + LANGUAGE_EXTENSION_PLACEHOLDER;
+    private static final String MODEL_JAVA = "Model." + LANGUAGE_EXTENSION_PLACEHOLDER;
 
     private static final String RELATIVE_PATH = File.separator + "ui" + File.separator + "mvp" + File.separator + "model";
 
