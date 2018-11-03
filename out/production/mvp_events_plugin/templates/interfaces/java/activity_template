@@ -10,7 +10,6 @@ import $PACKAGE_NAME$.ui.mvp.presenter.implementations.$SCREEN_NAME$Presenter;
 import $PACKAGE_NAME$.ui.mvp.view.implementations.$SCREEN_NAME$View;
 
 public class $SCREEN_NAME$Activity extends BaseActivity<$SCREEN_NAME$Presenter> {
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
