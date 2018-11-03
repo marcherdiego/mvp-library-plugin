@@ -8,6 +8,8 @@ import com.nerdscorner.mvp.domain.manifest.Manifest;
 import com.nerdscorner.mvp.mvp.ActivityMvpBuilder;
 import com.nerdscorner.mvp.mvp.FragmentMvpBuilder;
 import com.nerdscorner.mvp.mvp.MvpBuilder;
+import com.nerdscorner.mvp.utils.Constants;
+import com.nerdscorner.mvp.utils.Constants.Properties;
 import com.nerdscorner.mvp.utils.GradleUtils;
 import com.nerdscorner.mvp.utils.ManifestUtils;
 import com.nerdscorner.mvp.utils.StringUtils;
@@ -29,7 +31,6 @@ import static com.nerdscorner.mvp.utils.GradleUtils.MVP_LIB_EVENTS_DEPENDENCY_PK
 import static com.nerdscorner.mvp.utils.GradleUtils.MVP_LIB_INTERFACES_DEPENDENCY_PKG;
 
 public class PackageAndScreenInputDialog extends JDialog {
-    private static final String PROPERTY_PACKAGE_NAME = "package_name";
     private static final String ACTIVITY = "Activity";
     private static final String FRAGMENT = "Fragment";
 
@@ -48,6 +49,7 @@ public class PackageAndScreenInputDialog extends JDialog {
     private JRadioButton fragmentRadioButton;
     private JRadioButton javaRadioButton;
     private JRadioButton kotlinRadioButton;
+    private JRadioButton eventsRadioButton;
 
     public PackageAndScreenInputDialog(Project project, VirtualFile rootFolder, AnActionEvent actionEvent) {
         this.project = project;
@@ -72,11 +74,7 @@ public class PackageAndScreenInputDialog extends JDialog {
         // call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(e -> onCancel(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
-        Manifest manifest = ManifestUtils.getManifest(rootFolder);
-
-        PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);
-        String savedPackageName = propertiesComponent.getValue(PROPERTY_PACKAGE_NAME, "");
-        packageName.setText(savedPackageName.equals("") ? (manifest == null ? "" : manifest.getPkg()) : savedPackageName);
+        restoreInputStates();
     }
 
     public JButton getButtonOK() {
@@ -128,8 +126,7 @@ public class PackageAndScreenInputDialog extends JDialog {
         resultDialog.setVisible(true);
 
         //Save plugin state
-        PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);
-        propertiesComponent.setValue(PROPERTY_PACKAGE_NAME, basePackage);
+        saveInputStates();
     }
 
     private String sanitizeScreenName(String screenName) {
@@ -150,5 +147,66 @@ public class PackageAndScreenInputDialog extends JDialog {
 
     private boolean isMvpLibInstalled(boolean interfaces) {
         return GradleUtils.hasDependency(rootFolder, interfaces ? MVP_LIB_INTERFACES_DEPENDENCY_PKG : MVP_LIB_EVENTS_DEPENDENCY_PKG);
+    }
+
+    private void saveInputStates() {
+        PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);
+
+        //Package name
+        propertiesComponent.setValue(Constants.Properties.PROPERTY_PACKAGE_NAME, packageName.getText());
+
+        //Activity or Fragment
+        if (activityRadioButton.isSelected()) {
+            propertiesComponent.setValue(Properties.PROPERTY_COMPONENT_TYPE, Properties.COMPONENT_TYPE_ACTIVITY);
+        } else if (fragmentRadioButton.isSelected()) {
+            propertiesComponent.setValue(Properties.PROPERTY_COMPONENT_TYPE, Properties.COMPONENT_TYPE_FRAGMENT);
+        }
+
+        //Java or Kotlin
+        if (javaRadioButton.isSelected()) {
+            propertiesComponent.setValue(Properties.PROPERTY_LANGUAGE, Properties.LANGUAGE_JAVA);
+        } else if (kotlinRadioButton.isSelected()) {
+            propertiesComponent.setValue(Properties.PROPERTY_LANGUAGE, Properties.LANGUAGE_KOTLIN);
+        }
+
+        //Events or Interfaces
+        if (eventsRadioButton.isSelected()) {
+            propertiesComponent.setValue(Properties.PROPERTY_COMMUNICATIONS, Properties.COMMUNICATIONS_EVENTS);
+        } else if (interfacesRadioButton.isSelected()) {
+            propertiesComponent.setValue(Properties.PROPERTY_COMMUNICATIONS, Properties.COMMUNICATIONS_INTERFACES);
+        }
+    }
+
+    private void restoreInputStates() {
+        PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);
+
+        //Package name
+        Manifest manifest = ManifestUtils.getManifest(rootFolder);
+        String savedPackageName = propertiesComponent.getValue(Constants.Properties.PROPERTY_PACKAGE_NAME, "");
+        packageName.setText(savedPackageName.equals("") ? (manifest == null ? "" : manifest.getPkg()) : savedPackageName);
+
+        //Activity or Fragment
+        String componentType = propertiesComponent.getValue(Properties.PROPERTY_COMPONENT_TYPE, Properties.COMPONENT_TYPE_ACTIVITY);
+        if (componentType.equals(Properties.COMPONENT_TYPE_ACTIVITY)) {
+            activityRadioButton.setSelected(true);
+        } else if (componentType.equals(Properties.COMPONENT_TYPE_FRAGMENT)) {
+            fragmentRadioButton.setSelected(true);
+        }
+
+        //Java or Kotlin
+        String language = propertiesComponent.getValue(Properties.PROPERTY_LANGUAGE, Properties.LANGUAGE_JAVA);
+        if (language.equals(Properties.LANGUAGE_JAVA)) {
+            javaRadioButton.setSelected(true);
+        } else if (language.equals(Properties.LANGUAGE_KOTLIN)) {
+            kotlinRadioButton.setSelected(true);
+        }
+
+        //Events or Interfaces
+        String communications = propertiesComponent.getValue(Properties.PROPERTY_COMMUNICATIONS, Properties.COMMUNICATIONS_EVENTS);
+        if (communications.equals(Properties.COMMUNICATIONS_EVENTS)) {
+            eventsRadioButton.setSelected(true);
+        } else if (communications.equals(Properties.COMMUNICATIONS_INTERFACES)) {
+            interfacesRadioButton.setSelected(true);
+        }
     }
 }

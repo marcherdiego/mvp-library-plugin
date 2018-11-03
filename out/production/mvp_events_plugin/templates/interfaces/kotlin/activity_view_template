@@ -6,5 +6,5 @@ import com.nerdscorner.mvplib.interfaces.view.BaseActivityView
 import $PACKAGE_NAME$.ui.mvp.presenter.implementations.$SCREEN_NAME$Presenter
 import $PACKAGE_NAME$.ui.mvp.view.interfaces.$SCREEN_NAME$ViewInterface
 
-class $SCREEN_NAME$View(activity: BaseActivity) : BaseActivityView<$SCREEN_NAME$Presenter>(activity), $SCREEN_NAME$ViewInterface
+class $SCREEN_NAME$View(activity: BaseActivity<*>) : BaseActivityView<$SCREEN_NAME$Presenter>(activity), $SCREEN_NAME$ViewInterface
 
