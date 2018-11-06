@@ -58,7 +58,7 @@ public class ProjectUtils {
     }
 
     private static class Type {
-        public static final int JAVA = 1;
-        public static final int KOTLIN = 2;
+        static final int JAVA = 1;
+        static final int KOTLIN = 2;
     }
 }

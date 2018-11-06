@@ -1,6 +1,6 @@
 package com.nerdscorner.mvp.domain.manifest;
 
-public class Fragment {
+public class Fragment extends ScreenComponent {
     private String name;
 
     public String getName() {

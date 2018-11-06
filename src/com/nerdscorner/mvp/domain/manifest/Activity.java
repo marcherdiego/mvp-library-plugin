@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Activity {
+public class Activity extends ScreenComponent {
     private String fullName;
     private String name;
     private String displayName;
@@ -41,6 +41,9 @@ public class Activity {
 
     @Override
     public String toString() {
+        if (displayName.equals(CHOOSE_ONE)) {
+            return CHOOSE_ONE;
+        }
         return displayName.substring(displayName.lastIndexOf(".") + 1);
     }
 

@@ -7,6 +7,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.nerdscorner.mvp.domain.manifest.Activity;
 import com.nerdscorner.mvp.domain.manifest.Fragment;
 import com.nerdscorner.mvp.domain.manifest.Manifest;
+import com.nerdscorner.mvp.domain.manifest.ScreenComponent;
 import com.nerdscorner.mvp.mvp.ActivityMvpBuilder;
 import com.nerdscorner.mvp.mvp.FragmentMvpBuilder;
 import com.nerdscorner.mvp.mvp.MvpBuilder;
@@ -92,11 +93,13 @@ public class PackageAndScreenInputDialog extends JDialog {
     private void loadActivities() {
         Activity[] activities = ManifestUtils.findActivities(rootFolder);
         if (activities == null) {
+            existingActivity.setEnabled(false);
             return;
         }
+        existingActivity.setEnabled(true);
         DefaultComboBoxModel<Activity> activitiesModel = new DefaultComboBoxModel<>();
         Activity selectActivity = new Activity();
-        selectActivity.setName("Choose one");
+        selectActivity.setName(ScreenComponent.CHOOSE_ONE);
         activitiesModel.addElement(selectActivity);
         for (Activity activity : activities) {
             activitiesModel.addElement(activity);
@@ -109,11 +112,13 @@ public class PackageAndScreenInputDialog extends JDialog {
         List<Fragment> fragments = new LinkedList<>();
         ProjectUtils.getFragments(rootFolder, fragments);
         if (ListUtils.isEmpty(fragments)) {
+            existingFragment.setEnabled(false);
             return;
         }
+        existingFragment.setEnabled(true);
         DefaultComboBoxModel<Fragment> fragmentsModel = new DefaultComboBoxModel<>();
         Fragment selectFragment = new Fragment();
-        selectFragment.setName("Choose one");
+        selectFragment.setName(ScreenComponent.CHOOSE_ONE);
         fragmentsModel.addElement(selectFragment);
         for (Fragment fragment : fragments) {
             fragmentsModel.addElement(fragment);

@@ -26,6 +26,7 @@
 
     <actions>
         <action id="Create Btn" class="com.nerdscorner.mvp.CreateMvp" text="Create MVP skeleton">
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta M" second-keystroke="shift ctrl M"/>
             <add-to-group group-id="ToolsMenu" anchor="first"/>
         </action>
     </actions>
