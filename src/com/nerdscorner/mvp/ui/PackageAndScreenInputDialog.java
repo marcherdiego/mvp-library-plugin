@@ -4,6 +4,8 @@ import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.nerdscorner.mvp.domain.manifest.Activity;
+import com.nerdscorner.mvp.domain.manifest.Fragment;
 import com.nerdscorner.mvp.domain.manifest.Manifest;
 import com.nerdscorner.mvp.mvp.ActivityMvpBuilder;
 import com.nerdscorner.mvp.mvp.FragmentMvpBuilder;
@@ -11,16 +13,22 @@ import com.nerdscorner.mvp.mvp.MvpBuilder;
 import com.nerdscorner.mvp.utils.Constants;
 import com.nerdscorner.mvp.utils.Constants.Properties;
 import com.nerdscorner.mvp.utils.GradleUtils;
+import com.nerdscorner.mvp.utils.ListUtils;
 import com.nerdscorner.mvp.utils.ManifestUtils;
+import com.nerdscorner.mvp.utils.ProjectUtils;
 import com.nerdscorner.mvp.utils.StringUtils;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -50,6 +58,8 @@ public class PackageAndScreenInputDialog extends JDialog {
     private JRadioButton javaRadioButton;
     private JRadioButton kotlinRadioButton;
     private JRadioButton eventsRadioButton;
+    private JComboBox existingActivity;
+    private JComboBox existingFragment;
 
     public PackageAndScreenInputDialog(Project project, VirtualFile rootFolder, AnActionEvent actionEvent) {
         this.project = project;
@@ -74,7 +84,42 @@ public class PackageAndScreenInputDialog extends JDialog {
         // call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(e -> onCancel(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
+        loadActivities();
+        loadFragments();
         restoreInputStates();
+    }
+
+    private void loadActivities() {
+        Activity[] activities = ManifestUtils.findActivities(rootFolder);
+        if (activities == null) {
+            return;
+        }
+        DefaultComboBoxModel<Activity> activitiesModel = new DefaultComboBoxModel<>();
+        Activity selectActivity = new Activity();
+        selectActivity.setName("Choose one");
+        activitiesModel.addElement(selectActivity);
+        for (Activity activity : activities) {
+            activitiesModel.addElement(activity);
+        }
+        existingActivity.setModel(activitiesModel);
+        existingActivity.addActionListener(e -> screenName.setEnabled(existingActivity.getSelectedIndex() == 0));
+    }
+
+    private void loadFragments() {
+        List<Fragment> fragments = new LinkedList<>();
+        ProjectUtils.getFragments(rootFolder, fragments);
+        if (ListUtils.isEmpty(fragments)) {
+            return;
+        }
+        DefaultComboBoxModel<Fragment> fragmentsModel = new DefaultComboBoxModel<>();
+        Fragment selectFragment = new Fragment();
+        selectFragment.setName("Choose one");
+        fragmentsModel.addElement(selectFragment);
+        for (Fragment fragment : fragments) {
+            fragmentsModel.addElement(fragment);
+        }
+        existingFragment.setModel(fragmentsModel);
+        existingFragment.addActionListener(e -> screenName.setEnabled(existingFragment.getSelectedIndex() == 0));
     }
 
     public JButton getButtonOK() {
