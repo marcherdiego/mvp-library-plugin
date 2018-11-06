@@ -99,13 +99,22 @@ public class PackageAndScreenInputDialog extends JDialog {
         existingActivity.setEnabled(true);
         DefaultComboBoxModel<Activity> activitiesModel = new DefaultComboBoxModel<>();
         Activity selectActivity = new Activity();
-        selectActivity.setName(ScreenComponent.CHOOSE_ONE);
+        selectActivity.setName(ScreenComponent.NONE);
         activitiesModel.addElement(selectActivity);
         for (Activity activity : activities) {
             activitiesModel.addElement(activity);
         }
         existingActivity.setModel(activitiesModel);
-        existingActivity.addActionListener(e -> screenName.setEnabled(existingActivity.getSelectedIndex() == 0));
+        existingActivity.addActionListener(e -> {
+            if (existingActivity.getSelectedIndex() == 0) {
+                screenName.setEnabled(true);
+            } else {
+                existingFragment.setSelectedIndex(0);
+                screenName.setEnabled(false);
+                screenName.setText(((ScreenComponent) existingActivity.getSelectedItem()).getName());
+                activityRadioButton.setSelected(true);
+            }
+        });
     }
 
     private void loadFragments() {
@@ -118,13 +127,22 @@ public class PackageAndScreenInputDialog extends JDialog {
         existingFragment.setEnabled(true);
         DefaultComboBoxModel<Fragment> fragmentsModel = new DefaultComboBoxModel<>();
         Fragment selectFragment = new Fragment();
-        selectFragment.setName(ScreenComponent.CHOOSE_ONE);
+        selectFragment.setName(ScreenComponent.NONE);
         fragmentsModel.addElement(selectFragment);
         for (Fragment fragment : fragments) {
             fragmentsModel.addElement(fragment);
         }
         existingFragment.setModel(fragmentsModel);
-        existingFragment.addActionListener(e -> screenName.setEnabled(existingFragment.getSelectedIndex() == 0));
+        existingFragment.addActionListener(e -> {
+            if (existingFragment.getSelectedIndex() == 0) {
+                screenName.setEnabled(true);
+            } else {
+                existingActivity.setSelectedIndex(0);
+                screenName.setEnabled(false);
+                screenName.setText(((ScreenComponent) existingFragment.getSelectedItem()).getName());
+                fragmentRadioButton.setSelected(true);
+            }
+        });
     }
 
     public JButton getButtonOK() {
@@ -140,6 +158,7 @@ public class PackageAndScreenInputDialog extends JDialog {
         }
 
         String basePackage = packageName.getText();
+        boolean isExistingScreen = this.screenName.isEnabled();
         String screenName = StringUtils.asCamelCase(this.screenName.getText());
         if (StringUtils.isEmpty(basePackage) || StringUtils.isEmpty(screenName)) {
             //Show result
@@ -159,7 +178,7 @@ public class PackageAndScreenInputDialog extends JDialog {
         } else {
             mvpBuilder = new FragmentMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected());
         }
-        boolean success = mvpBuilder.build(rootFolder, basePath, basePackage, screenName, interfaces);
+        boolean success = mvpBuilder.build(rootFolder, basePath, basePackage, screenName, interfaces, isExistingScreen);
 
         if (success && shouldIncludeLibraryDependency) {
             GradleUtils.performSync(actionEvent);

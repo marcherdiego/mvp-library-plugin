@@ -17,7 +17,8 @@ public class FragmentMvpBuilder extends MvpBuilder {
     }
 
     @Override
-    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName, boolean interfaces) {
+    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName,
+                         boolean interfaces, boolean isExistingScreen) {
         if (interfaces) {
             //IS INTERFACES-LINK COMMUNICATION
             com.nerdscorner.mvp.mvp.interfaces.fragment.FragmentComponent fragmentComponent =
@@ -28,11 +29,11 @@ public class FragmentMvpBuilder extends MvpBuilder {
                     new com.nerdscorner.mvp.mvp.interfaces.view.FragmentViewComponent(fullPath, packageName, screenName);
             com.nerdscorner.mvp.mvp.interfaces.presenter.FragmentPresenterComponent fragmentPresenterComponent =
                     new com.nerdscorner.mvp.mvp.interfaces.presenter.FragmentPresenterComponent(fullPath, packageName, screenName);
-            boolean success =
-                    fragmentComponent.build(isJava)
-                            && modelComponent.build(isJava)
+            boolean success = !isExistingScreen && fragmentComponent.build(isJava);
+            success = success && modelComponent.build(isJava)
                             && fragmentViewComponent.build(isJava)
                             && fragmentPresenterComponent.build(isJava);
+            success = updateGradle(rootFolder, true, success);
             checkSuccessOrRollback(rootFolder, success, fragmentComponent, modelComponent, fragmentViewComponent, fragmentPresenterComponent);
             return success;
         } else {
@@ -40,12 +41,11 @@ public class FragmentMvpBuilder extends MvpBuilder {
             ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName);
             FragmentViewComponent fragmentViewComponent = new FragmentViewComponent(fullPath, packageName, screenName);
             FragmentPresenterComponent fragmentPresenterComponent = new FragmentPresenterComponent(fullPath, packageName, screenName);
-            boolean success =
-                    fragmentComponent.build(isJava)
-                            && modelComponent.build(isJava)
+            boolean success = !isExistingScreen && fragmentComponent.build(isJava);
+            success = success && modelComponent.build(isJava)
                             && fragmentViewComponent.build(isJava)
                             && fragmentPresenterComponent.build(isJava);
-            success = updateGradle(rootFolder, interfaces, success);
+            success = updateGradle(rootFolder, false, success);
             checkSuccessOrRollback(rootFolder, success, fragmentComponent, modelComponent, fragmentViewComponent, fragmentPresenterComponent);
             return success;
         }

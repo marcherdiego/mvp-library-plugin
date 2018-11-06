@@ -6,14 +6,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Activity extends ScreenComponent {
     private String fullName;
-    private String name;
     private String displayName;
 
+    @Override
     public String getName() {
-        return removeActivitySuffix(name);
-    }
-
-    public String getUntrimmedName() {
         return name;
     }
 
@@ -28,21 +24,10 @@ public class Activity extends ScreenComponent {
         this.fullName = name;
     }
 
-    private String removeActivitySuffix(String activity) {
-        int activityIndex = activity.lastIndexOf("Activity");
-        if (activityIndex == -1) {
-            activityIndex = activity.lastIndexOf("activity");
-            if (activityIndex == -1) {
-                return activity;
-            }
-        }
-        return activity.substring(0, activityIndex);
-    }
-
     @Override
     public String toString() {
-        if (displayName.equals(CHOOSE_ONE)) {
-            return CHOOSE_ONE;
+        if (displayName.equals(NONE)) {
+            return NONE;
         }
         return displayName.substring(displayName.lastIndexOf(".") + 1);
     }

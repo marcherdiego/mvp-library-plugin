@@ -3,6 +3,7 @@ package com.nerdscorner.mvp.domain.manifest;
 public class Fragment extends ScreenComponent {
     private String name;
 
+    @Override
     public String getName() {
         return name;
     }

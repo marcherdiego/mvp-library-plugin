@@ -20,7 +20,8 @@ public class ActivityMvpBuilder extends MvpBuilder {
     }
 
     @Override
-    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName, boolean interfaces) {
+    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName,
+                         boolean interfaces, boolean isExistingScreen) {
         if (interfaces) {
             //IS INTERFACES-LINK COMMUNICATION
             com.nerdscorner.mvp.mvp.interfaces.activity.ActivityComponent activityComponent =
@@ -31,12 +32,11 @@ public class ActivityMvpBuilder extends MvpBuilder {
                     new com.nerdscorner.mvp.mvp.interfaces.view.ActivityViewComponent(fullPath, packageName, screenName);
             com.nerdscorner.mvp.mvp.interfaces.presenter.ActivityPresenterComponent activityPresenterComponent =
                     new com.nerdscorner.mvp.mvp.interfaces.presenter.ActivityPresenterComponent(fullPath, packageName, screenName);
-            boolean success =
-                    activityComponent.build(isJava)
-                            && modelComponent.build(isJava)
+            boolean success = !isExistingScreen && activityComponent.build(isJava);
+            success = success && modelComponent.build(isJava)
                             && activityViewComponent.build(isJava)
                             && activityPresenterComponent.build(isJava);
-            success = updateManifestAndGradle(rootFolder, packageName, screenName, interfaces, success);
+            success = updateManifestAndGradle(rootFolder, packageName, screenName, true, success);
             checkSuccessOrRollback(rootFolder, success, activityComponent, modelComponent, activityViewComponent, activityPresenterComponent, savedManifest);
             return success;
         } else {
@@ -44,12 +44,11 @@ public class ActivityMvpBuilder extends MvpBuilder {
             ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName);
             ActivityViewComponent viewComponent = new ActivityViewComponent(fullPath, packageName, screenName);
             ActivityPresenterComponent presenterComponent = new ActivityPresenterComponent(fullPath, packageName, screenName);
-            boolean success =
-                    activityComponent.build(isJava)
-                            && modelComponent.build(isJava)
+            boolean success = !isExistingScreen && activityComponent.build(isJava);
+            success = success &&  modelComponent.build(isJava)
                             && viewComponent.build(isJava)
                             && presenterComponent.build(isJava);
-            success = updateManifestAndGradle(rootFolder, packageName, screenName, interfaces, success);
+            success = updateManifestAndGradle(rootFolder, packageName, screenName, false, success);
             checkSuccessOrRollback(rootFolder, success, activityComponent, modelComponent, viewComponent, presenterComponent, savedManifest);
             return success;
         }
