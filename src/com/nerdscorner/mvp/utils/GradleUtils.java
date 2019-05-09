@@ -16,13 +16,9 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.vfs.VirtualFile;
 
 public final class GradleUtils {
-    @Deprecated
-    private static final String LATEST_INTERFACES_LIB_VERSION = "1.8.3";
     private static final String LATEST_EVENTS_LIB_VERSION = "4.0.0";
 
-    public static final String MVP_LIB_INTERFACES_DEPENDENCY_PKG = "'com.nerdscorner.mvp:interfaces:";
     public static final String MVP_LIB_EVENTS_DEPENDENCY_PKG = "'com.nerdscorner.mvp:events:";
-    public static final String MVP_LIB_INTERFACES_DEPENDENCY = MVP_LIB_INTERFACES_DEPENDENCY_PKG + LATEST_INTERFACES_LIB_VERSION + "'";
     public static final String MVP_LIB_EVENTS_DEPENDENCY = MVP_LIB_EVENTS_DEPENDENCY_PKG + LATEST_EVENTS_LIB_VERSION + "'";
 
     private static final String IMPLEMENTATION = "\timplementation ";

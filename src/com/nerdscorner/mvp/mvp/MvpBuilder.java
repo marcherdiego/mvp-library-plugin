@@ -12,6 +12,5 @@ public abstract class MvpBuilder {
         this.isJava = isJava;
     }
 
-    public abstract boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName,
-                                  boolean interfaces, boolean isExistingScreen);
+    public abstract boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName, boolean isExistingScreen);
 }

@@ -13,10 +13,10 @@ public final class StringUtils {
         if (isEmpty(text)) {
             return text;
         }
-        return text.substring(0, 1).toUpperCase() + text.substring(1, text.length());
+        return text.substring(0, 1).toUpperCase() + text.substring(1);
     }
 
-    public static String replaceSpacesWithCamelCase(String text) {
+    private static String replaceSpacesWithCamelCase(String text) {
         if (isEmpty(text)) {
             return text;
         }
@@ -30,7 +30,7 @@ public final class StringUtils {
                 shouldCapitalizeLetter = false;
                 stringBuilder.append(String.valueOf(letter).toUpperCase());
             } else {
-                stringBuilder.append(String.valueOf(letter));
+                stringBuilder.append(letter);
             }
         }
         return stringBuilder.toString();

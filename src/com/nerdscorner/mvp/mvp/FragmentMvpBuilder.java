@@ -7,8 +7,8 @@ import com.nerdscorner.mvp.mvp.busevents.presenter.FragmentPresenterComponent;
 import com.nerdscorner.mvp.mvp.busevents.view.FragmentViewComponent;
 import com.nerdscorner.mvp.utils.GradleUtils;
 
+
 import static com.nerdscorner.mvp.utils.GradleUtils.MVP_LIB_EVENTS_DEPENDENCY;
-import static com.nerdscorner.mvp.utils.GradleUtils.MVP_LIB_INTERFACES_DEPENDENCY;
 
 public class FragmentMvpBuilder extends MvpBuilder {
 
@@ -17,44 +17,24 @@ public class FragmentMvpBuilder extends MvpBuilder {
     }
 
     @Override
-    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName,
-                         boolean interfaces, boolean isExistingScreen) {
-        if (interfaces) {
-            //IS INTERFACES-LINK COMMUNICATION
-            com.nerdscorner.mvp.mvp.interfaces.fragment.FragmentComponent fragmentComponent =
-                    new com.nerdscorner.mvp.mvp.interfaces.fragment.FragmentComponent(fullPath, packageName, screenName);
-            com.nerdscorner.mvp.mvp.interfaces.model.ModelComponent modelComponent =
-                    new com.nerdscorner.mvp.mvp.interfaces.model.ModelComponent(fullPath, packageName, screenName);
-            com.nerdscorner.mvp.mvp.interfaces.view.FragmentViewComponent fragmentViewComponent =
-                    new com.nerdscorner.mvp.mvp.interfaces.view.FragmentViewComponent(fullPath, packageName, screenName);
-            com.nerdscorner.mvp.mvp.interfaces.presenter.FragmentPresenterComponent fragmentPresenterComponent =
-                    new com.nerdscorner.mvp.mvp.interfaces.presenter.FragmentPresenterComponent(fullPath, packageName, screenName);
-            boolean success = !isExistingScreen && fragmentComponent.build(isJava);
-            success = success && modelComponent.build(isJava)
-                            && fragmentViewComponent.build(isJava)
-                            && fragmentPresenterComponent.build(isJava);
-            success = updateGradle(rootFolder, true, success);
-            checkSuccessOrRollback(rootFolder, success, fragmentComponent, modelComponent, fragmentViewComponent, fragmentPresenterComponent);
-            return success;
-        } else {
-            FragmentComponent fragmentComponent = new FragmentComponent(fullPath, packageName, screenName);
-            ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName);
-            FragmentViewComponent fragmentViewComponent = new FragmentViewComponent(fullPath, packageName, screenName);
-            FragmentPresenterComponent fragmentPresenterComponent = new FragmentPresenterComponent(fullPath, packageName, screenName);
-            boolean success = !isExistingScreen && fragmentComponent.build(isJava);
-            success = success && modelComponent.build(isJava)
-                            && fragmentViewComponent.build(isJava)
-                            && fragmentPresenterComponent.build(isJava);
-            success = updateGradle(rootFolder, false, success);
-            checkSuccessOrRollback(rootFolder, success, fragmentComponent, modelComponent, fragmentViewComponent, fragmentPresenterComponent);
-            return success;
-        }
+    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName, boolean isExistingScreen) {
+        FragmentComponent fragmentComponent = new FragmentComponent(fullPath, packageName, screenName);
+        ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName);
+        FragmentViewComponent fragmentViewComponent = new FragmentViewComponent(fullPath, packageName, screenName);
+        FragmentPresenterComponent fragmentPresenterComponent = new FragmentPresenterComponent(fullPath, packageName, screenName);
+        boolean success = !isExistingScreen && fragmentComponent.build(isJava);
+        success = success && modelComponent.build(isJava)
+                && fragmentViewComponent.build(isJava)
+                && fragmentPresenterComponent.build(isJava);
+        success = updateGradle(rootFolder, success);
+        checkSuccessOrRollback(rootFolder, success, fragmentComponent, modelComponent, fragmentViewComponent, fragmentPresenterComponent);
+        return success;
     }
 
-    private boolean updateGradle(VirtualFile rootFolder, boolean interfaces, boolean success) {
+    private boolean updateGradle(VirtualFile rootFolder, boolean success) {
         if (shouldIncludeLibraryDependency) {
             savedGradleFile = GradleUtils.getGradleFileContent(rootFolder);
-            success = success && GradleUtils.addDependency(rootFolder, interfaces ? MVP_LIB_INTERFACES_DEPENDENCY : MVP_LIB_EVENTS_DEPENDENCY);
+            success = success && GradleUtils.addDependency(rootFolder, MVP_LIB_EVENTS_DEPENDENCY);
         }
         return success;
     }

@@ -1,5 +1,22 @@
 package com.nerdscorner.mvp.ui;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.KeyStroke;
+
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
@@ -19,25 +36,7 @@ import com.nerdscorner.mvp.utils.ManifestUtils;
 import com.nerdscorner.mvp.utils.ProjectUtils;
 import com.nerdscorner.mvp.utils.StringUtils;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.KeyStroke;
-
 import static com.nerdscorner.mvp.utils.GradleUtils.MVP_LIB_EVENTS_DEPENDENCY_PKG;
-import static com.nerdscorner.mvp.utils.GradleUtils.MVP_LIB_INTERFACES_DEPENDENCY_PKG;
 
 public class PackageAndScreenInputDialog extends JDialog {
     private static final String ACTIVITY = "Activity";
@@ -52,13 +51,11 @@ public class PackageAndScreenInputDialog extends JDialog {
     private JButton buttonCancel;
     private javax.swing.JTextField packageName;
     private javax.swing.JTextField screenName;
-    private JRadioButton interfacesRadioButton;
     private JCheckBox includeLibraryDependency;
     private JRadioButton activityRadioButton;
     private JRadioButton fragmentRadioButton;
     private JRadioButton javaRadioButton;
     private JRadioButton kotlinRadioButton;
-    private JRadioButton eventsRadioButton;
     private JComboBox existingActivity;
     private JComboBox existingFragment;
 
@@ -150,15 +147,14 @@ public class PackageAndScreenInputDialog extends JDialog {
     }
 
     private void onOK() {
-        boolean interfaces = interfacesRadioButton.isSelected();
         boolean activity = activityRadioButton.isSelected();
         boolean shouldIncludeLibraryDependency = false;
         if (includeLibraryDependency.isSelected()) {
-            shouldIncludeLibraryDependency = !isMvpLibInstalled(interfaces);
+            shouldIncludeLibraryDependency = !isMvpLibInstalled();
         }
 
         String basePackage = packageName.getText();
-        boolean isExistingScreen = this.screenName.isEnabled();
+        boolean isExistingScreen = existingFragment.getSelectedIndex() > 0 || existingActivity.getSelectedIndex() > 0;
         String screenName = StringUtils.asCamelCase(this.screenName.getText());
         if (StringUtils.isEmpty(basePackage) || StringUtils.isEmpty(screenName)) {
             //Show result
@@ -178,7 +174,7 @@ public class PackageAndScreenInputDialog extends JDialog {
         } else {
             mvpBuilder = new FragmentMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected());
         }
-        boolean success = mvpBuilder.build(rootFolder, basePath, basePackage, screenName, interfaces, isExistingScreen);
+        boolean success = mvpBuilder.build(rootFolder, basePath, basePackage, screenName, isExistingScreen);
 
         if (success && shouldIncludeLibraryDependency) {
             GradleUtils.performSync(actionEvent);
@@ -214,8 +210,8 @@ public class PackageAndScreenInputDialog extends JDialog {
         dispose();
     }
 
-    private boolean isMvpLibInstalled(boolean interfaces) {
-        return GradleUtils.hasDependency(rootFolder, interfaces ? MVP_LIB_INTERFACES_DEPENDENCY_PKG : MVP_LIB_EVENTS_DEPENDENCY_PKG);
+    private boolean isMvpLibInstalled() {
+        return GradleUtils.hasDependency(rootFolder, MVP_LIB_EVENTS_DEPENDENCY_PKG);
     }
 
     private void saveInputStates() {
@@ -236,13 +232,6 @@ public class PackageAndScreenInputDialog extends JDialog {
             propertiesComponent.setValue(Properties.PROPERTY_LANGUAGE, Properties.LANGUAGE_JAVA);
         } else if (kotlinRadioButton.isSelected()) {
             propertiesComponent.setValue(Properties.PROPERTY_LANGUAGE, Properties.LANGUAGE_KOTLIN);
-        }
-
-        //Events or Interfaces
-        if (eventsRadioButton.isSelected()) {
-            propertiesComponent.setValue(Properties.PROPERTY_COMMUNICATIONS, Properties.COMMUNICATIONS_EVENTS);
-        } else if (interfacesRadioButton.isSelected()) {
-            propertiesComponent.setValue(Properties.PROPERTY_COMMUNICATIONS, Properties.COMMUNICATIONS_INTERFACES);
         }
     }
 
@@ -268,14 +257,6 @@ public class PackageAndScreenInputDialog extends JDialog {
             javaRadioButton.setSelected(true);
         } else if (language.equals(Properties.LANGUAGE_KOTLIN)) {
             kotlinRadioButton.setSelected(true);
-        }
-
-        //Events or Interfaces
-        String communications = propertiesComponent.getValue(Properties.PROPERTY_COMMUNICATIONS, Properties.COMMUNICATIONS_EVENTS);
-        if (communications.equals(Properties.COMMUNICATIONS_EVENTS)) {
-            eventsRadioButton.setSelected(true);
-        } else if (communications.equals(Properties.COMMUNICATIONS_INTERFACES)) {
-            interfacesRadioButton.setSelected(true);
         }
     }
 }
