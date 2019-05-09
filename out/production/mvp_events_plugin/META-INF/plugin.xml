@@ -23,7 +23,10 @@
 
     <extensions defaultExtensionNs="com.intellij">
     </extensions>
-
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <toolWindow id="MELI Github" anchor="right" factoryClass="com.mercadolibre.plugin.github.ui.windows.GitHubTool"/>
+    </extensions>
     <actions>
         <action id="Create Btn" class="com.nerdscorner.mvp.CreateMvp" text="Create MVP skeleton">
             <keyboard-shortcut keymap="$default" first-keystroke="shift meta M" second-keystroke="shift ctrl M"/>

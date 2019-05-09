@@ -1,10 +1,5 @@
 package com.nerdscorner.mvp.utils;
 
-import com.intellij.openapi.actionSystem.ActionManager;
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.vfs.VirtualFile;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -15,15 +10,22 @@ import java.io.InputStreamReader;
 
 import javax.annotation.Nullable;
 
+import com.intellij.openapi.actionSystem.ActionManager;
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.vfs.VirtualFile;
+
 public final class GradleUtils {
-    private static final String LATEST_INTERFACES_LIB_VERSION = "1.8.1";
-    private static final String LATEST_EVENTS_LIB_VERSION = "1.9.1";
+    @Deprecated
+    private static final String LATEST_INTERFACES_LIB_VERSION = "1.8.3";
+    private static final String LATEST_EVENTS_LIB_VERSION = "4.0.0";
+
     public static final String MVP_LIB_INTERFACES_DEPENDENCY_PKG = "'com.nerdscorner.mvp:interfaces:";
     public static final String MVP_LIB_EVENTS_DEPENDENCY_PKG = "'com.nerdscorner.mvp:events:";
     public static final String MVP_LIB_INTERFACES_DEPENDENCY = MVP_LIB_INTERFACES_DEPENDENCY_PKG + LATEST_INTERFACES_LIB_VERSION + "'";
     public static final String MVP_LIB_EVENTS_DEPENDENCY = MVP_LIB_EVENTS_DEPENDENCY_PKG + LATEST_EVENTS_LIB_VERSION + "'";
 
-    private static final String COMPILE = "\tcompile ";
+    private static final String IMPLEMENTATION = "\timplementation ";
     private static final String DEPENDENCIES_BLOCK_BEGIN = "dependencies {";
     private static final String DEPENDENCIES_BLOCK_BEGIN_ALT = "dependencies{";
 
@@ -53,7 +55,7 @@ public final class GradleUtils {
                     continue;
                 }
                 if (line.contains(DEPENDENCIES_BLOCK_BEGIN) || line.contains(DEPENDENCIES_BLOCK_BEGIN_ALT)) {
-                    gradleFileBuilder.append(COMPILE).append(dependency).append(System.lineSeparator());
+                    gradleFileBuilder.append(IMPLEMENTATION).append(dependency).append(System.lineSeparator());
                     state = DONE;
                 }
             }
