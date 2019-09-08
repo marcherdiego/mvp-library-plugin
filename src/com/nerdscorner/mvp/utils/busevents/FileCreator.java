@@ -33,19 +33,4 @@ public class FileCreator {
             fileWriter.close();
         }
     }
-
-    public static void copyFile(InputStream inputStream, File file) throws IOException {
-        if (!file.exists()) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            String line;
-            StringBuilder fileContent = new StringBuilder();
-            while ((line = reader.readLine()) != null) {
-                fileContent.append(line).append(System.lineSeparator());
-            }
-
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(fileContent.toString());
-            fileWriter.close();
-        }
-    }
 }

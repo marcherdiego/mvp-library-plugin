@@ -15,17 +15,17 @@ public class ActivityMvpBuilder extends MvpBuilder {
 
     private String savedManifest;
 
-    public ActivityMvpBuilder(boolean shouldIncludeLibraryDependency, boolean isJava) {
-        super(shouldIncludeLibraryDependency, isJava);
+    public ActivityMvpBuilder(boolean shouldIncludeLibraryDependency, boolean isJava, boolean shouldCreateWiring) {
+        super(shouldIncludeLibraryDependency, isJava, shouldCreateWiring);
     }
 
     @Override
-    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName, boolean isExistingScreen) {
-        ActivityComponent activityComponent = new ActivityComponent(fullPath, packageName, screenName);
-        ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName);
-        ActivityViewComponent viewComponent = new ActivityViewComponent(fullPath, packageName, screenName);
-        ActivityPresenterComponent presenterComponent = new ActivityPresenterComponent(fullPath, packageName, screenName);
-        boolean success = !isExistingScreen && activityComponent.build(isJava);
+    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName) {
+        ActivityComponent activityComponent = new ActivityComponent(fullPath, packageName, screenName, shouldCreateWiring);
+        ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName, shouldCreateWiring);
+        ActivityViewComponent viewComponent = new ActivityViewComponent(fullPath, packageName, screenName, shouldCreateWiring);
+        ActivityPresenterComponent presenterComponent = new ActivityPresenterComponent(fullPath, packageName, screenName, shouldCreateWiring);
+        boolean success = activityComponent.build(isJava);
         success = success && modelComponent.build(isJava)
                 && viewComponent.build(isJava)
                 && presenterComponent.build(isJava);

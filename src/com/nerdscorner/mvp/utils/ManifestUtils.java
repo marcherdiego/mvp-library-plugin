@@ -1,10 +1,5 @@
 package com.nerdscorner.mvp.utils;
 
-import com.intellij.openapi.vfs.VirtualFile;
-import com.nerdscorner.mvp.domain.manifest.Activity;
-import com.nerdscorner.mvp.domain.manifest.Manifest;
-import com.nerdscorner.mvp.mvp.busevents.activity.ActivityComponent;
-
 import org.jetbrains.annotations.Nullable;
 
 import java.io.BufferedReader;
@@ -18,6 +13,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import com.intellij.openapi.vfs.VirtualFile;
+import com.nerdscorner.mvp.domain.manifest.Manifest;
+import com.nerdscorner.mvp.mvp.busevents.activity.ActivityComponent;
+
 public class ManifestUtils {
     private static final String XML_ACTIVITY_START_TAG = "<application";
     private static final String XML_CLOSE_TAG = ">";
@@ -26,14 +25,6 @@ public class ManifestUtils {
     private static final String ACTIVITY_NAME = "$ACTIVITY_NAME$";
     private static final String NEW_LINE = "$NEW_LINE$";
     private static final String MANIFEST_ACTIVITY_TEMPLATE = "\t\t<activity android:name=\"$PACKAGE_NAME$.$ACTIVITY_NAME$\">$NEW_LINE$\t\t</activity>";
-
-    public static Activity[] findActivities(VirtualFile sourceFolder) {
-        Manifest manifest = getManifest(sourceFolder);
-        if (manifest == null) {
-            return null;
-        }
-        return manifest.getApplication().getActivity();
-    }
 
     @Nullable
     public static Manifest getManifest(VirtualFile sourceFolder) {

@@ -4,13 +4,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -21,20 +17,16 @@ import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.nerdscorner.mvp.domain.manifest.Activity;
-import com.nerdscorner.mvp.domain.manifest.Fragment;
 import com.nerdscorner.mvp.domain.manifest.Manifest;
-import com.nerdscorner.mvp.domain.manifest.ScreenComponent;
 import com.nerdscorner.mvp.mvp.ActivityMvpBuilder;
 import com.nerdscorner.mvp.mvp.FragmentMvpBuilder;
 import com.nerdscorner.mvp.mvp.MvpBuilder;
 import com.nerdscorner.mvp.utils.Constants;
 import com.nerdscorner.mvp.utils.Constants.Properties;
 import com.nerdscorner.mvp.utils.GradleUtils;
-import com.nerdscorner.mvp.utils.ListUtils;
 import com.nerdscorner.mvp.utils.ManifestUtils;
-import com.nerdscorner.mvp.utils.ProjectUtils;
 import com.nerdscorner.mvp.utils.StringUtils;
+
 
 import static com.nerdscorner.mvp.utils.GradleUtils.MVP_LIB_EVENTS_DEPENDENCY_PKG;
 
@@ -56,8 +48,7 @@ public class PackageAndScreenInputDialog extends JDialog {
     private JRadioButton fragmentRadioButton;
     private JRadioButton javaRadioButton;
     private JRadioButton kotlinRadioButton;
-    private JComboBox existingActivity;
-    private JComboBox existingFragment;
+    private JCheckBox addSampleCode;
 
     public PackageAndScreenInputDialog(Project project, VirtualFile rootFolder, AnActionEvent actionEvent) {
         this.project = project;
@@ -71,76 +62,26 @@ public class PackageAndScreenInputDialog extends JDialog {
 
         buttonCancel.addActionListener(e -> onCancel());
 
-        // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onCancel();
-            }
-        });
 
         // call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(e -> onCancel(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
-        loadActivities();
-        loadFragments();
         restoreInputStates();
-    }
 
-    private void loadActivities() {
-        Activity[] activities = ManifestUtils.findActivities(rootFolder);
-        if (activities == null) {
-            existingActivity.setEnabled(false);
-            return;
-        }
-        existingActivity.setEnabled(true);
-        DefaultComboBoxModel<Activity> activitiesModel = new DefaultComboBoxModel<>();
-        Activity selectActivity = new Activity();
-        selectActivity.setName(ScreenComponent.NONE);
-        activitiesModel.addElement(selectActivity);
-        for (Activity activity : activities) {
-            activitiesModel.addElement(activity);
-        }
-        existingActivity.setModel(activitiesModel);
-        existingActivity.addActionListener(e -> {
-            if (existingActivity.getSelectedIndex() == 0) {
-                screenName.setEnabled(true);
-            } else {
-                existingFragment.setSelectedIndex(0);
-                screenName.setEnabled(false);
-                screenName.setText(((ScreenComponent) existingActivity.getSelectedItem()).getName());
-                activityRadioButton.setSelected(true);
+        addWindowListener(new WindowAdapter() {
+            // call onCancel() when cross is clicked
+            public void windowClosing(WindowEvent e) {
+                onCancel();
+            }
+
+            // Request focus on the screen name input
+            public void windowOpened(WindowEvent e) {
+                screenName.requestFocus();
             }
         });
     }
 
-    private void loadFragments() {
-        List<Fragment> fragments = new LinkedList<>();
-        ProjectUtils.getFragments(rootFolder, fragments);
-        if (ListUtils.isEmpty(fragments)) {
-            existingFragment.setEnabled(false);
-            return;
-        }
-        existingFragment.setEnabled(true);
-        DefaultComboBoxModel<Fragment> fragmentsModel = new DefaultComboBoxModel<>();
-        Fragment selectFragment = new Fragment();
-        selectFragment.setName(ScreenComponent.NONE);
-        fragmentsModel.addElement(selectFragment);
-        for (Fragment fragment : fragments) {
-            fragmentsModel.addElement(fragment);
-        }
-        existingFragment.setModel(fragmentsModel);
-        existingFragment.addActionListener(e -> {
-            if (existingFragment.getSelectedIndex() == 0) {
-                screenName.setEnabled(true);
-            } else {
-                existingActivity.setSelectedIndex(0);
-                screenName.setEnabled(false);
-                screenName.setText(((ScreenComponent) existingFragment.getSelectedItem()).getName());
-                fragmentRadioButton.setSelected(true);
-            }
-        });
-    }
 
     public JButton getButtonOK() {
         return buttonOK;
@@ -148,13 +89,10 @@ public class PackageAndScreenInputDialog extends JDialog {
 
     private void onOK() {
         boolean activity = activityRadioButton.isSelected();
-        boolean shouldIncludeLibraryDependency = false;
-        if (includeLibraryDependency.isSelected()) {
-            shouldIncludeLibraryDependency = !isMvpLibInstalled();
-        }
+        boolean shouldIncludeLibraryDependency = includeLibraryDependency.isSelected() && !isMvpLibInstalled();
+        boolean shouldCreateWiring = addSampleCode.isSelected();
 
         String basePackage = packageName.getText();
-        boolean isExistingScreen = existingFragment.getSelectedIndex() > 0 || existingActivity.getSelectedIndex() > 0;
         String screenName = StringUtils.asCamelCase(this.screenName.getText());
         if (StringUtils.isEmpty(basePackage) || StringUtils.isEmpty(screenName)) {
             //Show result
@@ -170,11 +108,11 @@ public class PackageAndScreenInputDialog extends JDialog {
         String basePath = rootFolder.getPath() + File.separator + basePackage.replace(".", File.separator);
         MvpBuilder mvpBuilder;
         if (activity) {
-            mvpBuilder = new ActivityMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected());
+            mvpBuilder = new ActivityMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected(), shouldCreateWiring);
         } else {
-            mvpBuilder = new FragmentMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected());
+            mvpBuilder = new FragmentMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected(), shouldCreateWiring);
         }
-        boolean success = mvpBuilder.build(rootFolder, basePath, basePackage, screenName, isExistingScreen);
+        boolean success = mvpBuilder.build(rootFolder, basePath, basePackage, screenName);
 
         if (success && shouldIncludeLibraryDependency) {
             GradleUtils.performSync(actionEvent);

@@ -1,11 +1,11 @@
 package com.nerdscorner.mvp.mvp.busevents.base;
 
-import com.nerdscorner.mvp.mvp.BaseComponent;
-import com.nerdscorner.mvp.utils.busevents.FileCreator;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+
+import com.nerdscorner.mvp.mvp.BaseComponent;
+import com.nerdscorner.mvp.utils.busevents.FileCreator;
 
 public abstract class MvpComponent extends BaseComponent {
 
@@ -16,12 +16,17 @@ public abstract class MvpComponent extends BaseComponent {
     private String componentTemplate;
     private String componentWithExtension;
 
-    public MvpComponent(String basePath, String basePackage, String screenName, String componentTemplate, String componentWithExtension) {
+    public MvpComponent(String basePath, String basePackage, String screenName, String componentTemplate, String componentWithExtension,
+                        boolean shouldCreateWiring) {
         this.basePath = basePath;
         this.basePackage = basePackage;
         this.screenName = screenName;
-        this.componentTemplate = componentTemplate;
+        this.componentTemplate = getTemplatePath(shouldCreateWiring, componentTemplate);
         this.componentWithExtension = componentWithExtension;
+    }
+
+    private String getTemplatePath(boolean shouldCreateWiring, String componentTemplate) {
+        return "/templates/" + (shouldCreateWiring ? "wiring/" : "clean/") + componentTemplate;
     }
 
     public boolean build(boolean isJava) {

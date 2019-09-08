@@ -12,17 +12,17 @@ import static com.nerdscorner.mvp.utils.GradleUtils.MVP_LIB_EVENTS_DEPENDENCY;
 
 public class FragmentMvpBuilder extends MvpBuilder {
 
-    public FragmentMvpBuilder(boolean shouldIncludeLibraryDependency, boolean isJava) {
-        super(shouldIncludeLibraryDependency, isJava);
+    public FragmentMvpBuilder(boolean shouldIncludeLibraryDependency, boolean isJava, boolean shouldCreateWiring) {
+        super(shouldIncludeLibraryDependency, isJava, shouldCreateWiring);
     }
 
     @Override
-    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName, boolean isExistingScreen) {
-        FragmentComponent fragmentComponent = new FragmentComponent(fullPath, packageName, screenName);
-        ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName);
-        FragmentViewComponent fragmentViewComponent = new FragmentViewComponent(fullPath, packageName, screenName);
-        FragmentPresenterComponent fragmentPresenterComponent = new FragmentPresenterComponent(fullPath, packageName, screenName);
-        boolean success = !isExistingScreen && fragmentComponent.build(isJava);
+    public boolean build(VirtualFile rootFolder, String fullPath, String packageName, String screenName) {
+        FragmentComponent fragmentComponent = new FragmentComponent(fullPath, packageName, screenName, shouldCreateWiring);
+        ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName, shouldCreateWiring);
+        FragmentViewComponent fragmentViewComponent = new FragmentViewComponent(fullPath, packageName, screenName, shouldCreateWiring);
+        FragmentPresenterComponent fragmentPresenterComponent = new FragmentPresenterComponent(fullPath, packageName, screenName, shouldCreateWiring);
+        boolean success = fragmentComponent.build(isJava);
         success = success && modelComponent.build(isJava)
                 && fragmentViewComponent.build(isJava)
                 && fragmentPresenterComponent.build(isJava);

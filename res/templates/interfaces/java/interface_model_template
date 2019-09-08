@@ -1,4 +1,0 @@
-package $PACKAGE_NAME$.ui.mvp.model.interfaces;
-
-public interface $SCREEN_NAME$ModelInterface {
-}

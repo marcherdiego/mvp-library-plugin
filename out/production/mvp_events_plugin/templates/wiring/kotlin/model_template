@@ -1,0 +1,13 @@
+package $PACKAGE_NAME$.ui.mvp.model
+
+import com.nerdscorner.mvplib.events.model.BaseEventsModel
+
+class $SCREEN_NAME$Model : BaseEventsModel() {
+
+    fun doSomething() {
+        //Heavy work and then... notify the Presenter
+        bus.post(SomeModelActionEvent())
+    }
+
+    class SomeModelActionEvent
+}
