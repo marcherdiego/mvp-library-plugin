@@ -1,11 +1,5 @@
 package com.nerdscorner.mvp.ui;
 
-import com.intellij.ide.util.PropertiesComponent;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.roots.ProjectRootManager;
-import com.intellij.openapi.vfs.VirtualFile;
-
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -18,8 +12,12 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import static com.nerdscorner.mvp.utils.Constants.BUILD;
-import static com.nerdscorner.mvp.utils.Constants.GENERATED;
+import com.intellij.ide.util.PropertiesComponent;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.roots.ProjectRootManager;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.nerdscorner.mvp.utils.Constants;
 
 public class SourceFolderSelectorDialog extends JDialog {
     private static final String PROPERTY_SOURCE_FOLDER_NAME = "source_folder_name";
@@ -64,7 +62,7 @@ public class SourceFolderSelectorDialog extends JDialog {
         int currentIndex = 0;
         int selectedIndex = 0;
         for (VirtualFile sourceFolder : sourceFolders) {
-            if (sourceFolder.getUrl().contains(GENERATED) || sourceFolder.getUrl().contains(BUILD)) {
+            if (sourceFolder.getUrl().contains(Constants.GENERATED) || sourceFolder.getUrl().contains(Constants.BUILD)) {
                 continue;
             }
             if (sourceFolder.getPath().equals(sourceFolderName)) {
