@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d9aa841-5926-4252-ab9b-3f2dce3ebdbb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/templates/clean/java/activity_template" beforeDir="false" afterPath="$PROJECT_DIR$/res/templates/clean/java/activity_template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/templates/clean/java/fragment_template" beforeDir="false" afterPath="$PROJECT_DIR$/res/templates/clean/java/fragment_template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/templates/clean/kotlin/activity_template" beforeDir="false" afterPath="$PROJECT_DIR$/res/templates/clean/kotlin/activity_template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/templates/clean/kotlin/fragment_template" beforeDir="false" afterPath="$PROJECT_DIR$/res/templates/clean/kotlin/fragment_template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/templates/wiring/java/activity_template" beforeDir="false" afterPath="$PROJECT_DIR$/res/templates/wiring/java/activity_template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/templates/wiring/java/fragment_template" beforeDir="false" afterPath="$PROJECT_DIR$/res/templates/wiring/java/fragment_template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/templates/wiring/kotlin/activity_template" beforeDir="false" afterPath="$PROJECT_DIR$/res/templates/wiring/kotlin/activity_template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/templates/wiring/kotlin/fragment_template" beforeDir="false" afterPath="$PROJECT_DIR$/res/templates/wiring/kotlin/fragment_template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/ActivityMvpBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/FragmentMvpBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/FragmentMvpBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/base/MvpComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/ManifestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/ManifestUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/busevents/FileCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/FileCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvp_events_plugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mvp_events_plugin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/GradleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/GradleUtils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,6 +18,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/GradleUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/mvp/busevents/layout/LayoutComponent.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -44,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="180" column="88" lean-forward="true" selection-start-line="180" selection-start-column="88" selection-end-line="180" selection-end-column="88" />
+            <state relative-caret-position="383">
+              <caret line="173" column="5" lean-forward="true" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -138,7 +143,6 @@
         <option value="$PROJECT_DIR$/res/templates/interfaces/kotlin/fragment_view_template" />
         <option value="$PROJECT_DIR$/res/templates/interfaces/java/fragment_view_template" />
         <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/FileReader.java" />
-        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/GradleUtils.java" />
         <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/busevents/FileCreator.java" />
         <option value="$PROJECT_DIR$/res/templates/wiring/kotlin/activity_presenter_template" />
         <option value="$PROJECT_DIR$/res/templates/wiring/kotlin/fragment_presenter_template" />
@@ -159,7 +163,6 @@
         <option value="$PROJECT_DIR$/res/templates/wiring/java/activity_view_template" />
         <option value="$PROJECT_DIR$/res/templates/wiring/java/activity_presenter_template" />
         <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.form" />
-        <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/SourceFolderSelectorDialog.java" />
         <option value="$PROJECT_DIR$/res/templates/layouts/layout" />
         <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/ManifestUtils.java" />
@@ -179,6 +182,8 @@
         <option value="$PROJECT_DIR$/res/templates/wiring/kotlin/fragment_template" />
         <option value="$PROJECT_DIR$/res/templates/wiring/java/fragment_template" />
         <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.java" />
+        <option value="$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/GradleUtils.java" />
+        <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
       </list>
     </option>
   </component>
@@ -215,81 +220,6 @@
             <path>
               <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
               <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="clean" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="clean" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="clean" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="wiring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="wiring" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="wiring" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mvp-library-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mvp-library-plugin" type="b2602c69:ProjectViewProjectNode" />
@@ -551,7 +481,7 @@
     <frame x="0" y="23" width="1680" height="962" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22100122" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33028084" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -560,14 +490,14 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49777532" weight="0.11099253" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4955506" visible="true" weight="0.30106258" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4955506" weight="0.47579694" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.41794568" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5211346" side_tool="true" weight="0.25506938" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.40398127" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4788654" weight="0.2231405" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4788654" visible="true" weight="0.1794569" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49777532" weight="0.15925059" />
       <window_info anchor="right" id="Maven" order="0" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
@@ -743,13 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/GradleUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="43" column="66" selection-start-line="43" selection-start-column="66" selection-end-line="43" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/templates/wiring/java/activity_presenter_template">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -775,13 +698,6 @@
             <element signature="e#7643#7644#0" expanded="true" />
             <element signature="e#7727#7728#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="25" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1006,8 +922,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/ui/PackageAndScreenInputDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="180" column="88" lean-forward="true" selection-start-line="180" selection-start-column="88" selection-end-line="180" selection-end-column="88" />
+        <state relative-caret-position="383">
+          <caret line="173" column="5" lean-forward="true" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nerdscorner/mvp/utils/GradleUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
         </state>
       </provider>
     </entry>
