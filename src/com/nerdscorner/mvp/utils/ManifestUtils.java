@@ -24,6 +24,8 @@ public class ManifestUtils {
     private static final String PACKAGE_NAME = "$PACKAGE_NAME$";
     private static final String ACTIVITY_NAME = "$ACTIVITY_NAME$";
     private static final String NEW_LINE = "$NEW_LINE$";
+    private static final String LAYOUT_NAME = "$LAYOUT_NAME$";
+
     private static final String MANIFEST_ACTIVITY_TEMPLATE = "\t\t<activity android:name=\"$PACKAGE_NAME$.$ACTIVITY_NAME$\">$NEW_LINE$\t\t</activity>";
 
     @Nullable

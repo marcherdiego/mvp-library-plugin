@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import com.nerdscorner.mvp.mvp.BaseComponent;
-import com.nerdscorner.mvp.utils.busevents.FileCreator;
+import com.nerdscorner.mvp.utils.FileCreator;
 
 public abstract class MvpComponent extends BaseComponent {
 

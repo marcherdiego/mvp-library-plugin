@@ -179,7 +179,7 @@ public class PackageAndScreenInputDialog extends JDialog {
         //Package name
         Manifest manifest = ManifestUtils.getManifest(rootFolder);
         String savedPackageName = propertiesComponent.getValue(Constants.Properties.PROPERTY_PACKAGE_NAME, "");
-        packageName.setText(savedPackageName.equals("") ? (manifest == null ? "" : manifest.getPkg()) : savedPackageName);
+        packageName.setText(manifest == null ? savedPackageName : manifest.getPkg());
 
         //Activity or Fragment
         String componentType = propertiesComponent.getValue(Properties.PROPERTY_COMPONENT_TYPE, Properties.COMPONENT_TYPE_ACTIVITY);

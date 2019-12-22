@@ -4,6 +4,8 @@ import static com.intellij.codeInsight.template.impl.TemplateSettings.SPACE_CHAR
 
 public final class StringUtils {
 
+    private static final String HYPHEN = "_";
+
     public static boolean isEmpty(String text) {
         return text == null || text.length() == 0;
     }
@@ -29,6 +31,25 @@ public final class StringUtils {
             } else if (shouldCapitalizeLetter) {
                 shouldCapitalizeLetter = false;
                 stringBuilder.append(String.valueOf(letter).toUpperCase());
+            } else {
+                stringBuilder.append(letter);
+            }
+        }
+        return stringBuilder.toString();
+    }
+
+    public static String replaceCamelCaseWithSnakeCase(String text) {
+        if (isEmpty(text)) {
+            return text;
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            char letter = text.charAt(i);
+            if (Character.isUpperCase(letter)) {
+                if (i > 0) {
+                    stringBuilder.append(HYPHEN);
+                }
+                stringBuilder.append(String.valueOf(letter).toLowerCase());
             } else {
                 stringBuilder.append(letter);
             }

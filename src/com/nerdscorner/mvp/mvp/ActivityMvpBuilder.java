@@ -2,6 +2,7 @@ package com.nerdscorner.mvp.mvp;
 
 import com.intellij.openapi.vfs.VirtualFile;
 import com.nerdscorner.mvp.mvp.busevents.activity.ActivityComponent;
+import com.nerdscorner.mvp.mvp.busevents.layout.LayoutComponent;
 import com.nerdscorner.mvp.mvp.busevents.model.ModelComponent;
 import com.nerdscorner.mvp.mvp.busevents.presenter.ActivityPresenterComponent;
 import com.nerdscorner.mvp.mvp.busevents.view.ActivityViewComponent;
@@ -25,12 +26,16 @@ public class ActivityMvpBuilder extends MvpBuilder {
         ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName, shouldCreateWiring);
         ActivityViewComponent viewComponent = new ActivityViewComponent(fullPath, packageName, screenName, shouldCreateWiring);
         ActivityPresenterComponent presenterComponent = new ActivityPresenterComponent(fullPath, packageName, screenName, shouldCreateWiring);
+        LayoutComponent layoutComponent = new LayoutComponent(fullPath, packageName, screenName, true);
         boolean success = activityComponent.build(isJava);
         success = success && modelComponent.build(isJava)
                 && viewComponent.build(isJava)
-                && presenterComponent.build(isJava);
+                && presenterComponent.build(isJava)
+                && layoutComponent.build();
         success = updateManifestAndGradle(rootFolder, packageName, screenName, success);
-        checkSuccessOrRollback(rootFolder, success, activityComponent, modelComponent, viewComponent, presenterComponent, savedManifest);
+        if (!success) {
+            rollback(rootFolder, activityComponent, modelComponent, viewComponent, presenterComponent, layoutComponent, savedManifest);
+        }
         return success;
     }
 
@@ -44,15 +49,15 @@ public class ActivityMvpBuilder extends MvpBuilder {
         return success;
     }
 
-    private void checkSuccessOrRollback(VirtualFile rootFolder, boolean success, BaseComponent activityComponent, BaseComponent modelComponent,
-                                        BaseComponent viewComponent, BaseComponent presenterComponent, String savedManifest) {
-        if (!success) {
-            activityComponent.rollback();
-            modelComponent.rollback();
-            viewComponent.rollback();
-            presenterComponent.rollback();
-            ManifestUtils.restoreManifest(savedManifest, rootFolder.getPath());
-            GradleUtils.restoreGradleFile(savedGradleFile, rootFolder);
-        }
+    private void rollback(VirtualFile rootFolder, BaseComponent activityComponent, BaseComponent modelComponent,
+                          BaseComponent viewComponent, BaseComponent presenterComponent, LayoutComponent layoutComponent,
+                          String savedManifest) {
+        activityComponent.rollback();
+        modelComponent.rollback();
+        viewComponent.rollback();
+        presenterComponent.rollback();
+        layoutComponent.rollback();
+        ManifestUtils.restoreManifest(savedManifest, rootFolder.getPath());
+        GradleUtils.restoreGradleFile(savedGradleFile, rootFolder);
     }
 }

@@ -2,6 +2,7 @@ package com.nerdscorner.mvp.mvp;
 
 import com.intellij.openapi.vfs.VirtualFile;
 import com.nerdscorner.mvp.mvp.busevents.fragment.FragmentComponent;
+import com.nerdscorner.mvp.mvp.busevents.layout.LayoutComponent;
 import com.nerdscorner.mvp.mvp.busevents.model.ModelComponent;
 import com.nerdscorner.mvp.mvp.busevents.presenter.FragmentPresenterComponent;
 import com.nerdscorner.mvp.mvp.busevents.view.FragmentViewComponent;
@@ -22,12 +23,16 @@ public class FragmentMvpBuilder extends MvpBuilder {
         ModelComponent modelComponent = new ModelComponent(fullPath, packageName, screenName, shouldCreateWiring);
         FragmentViewComponent fragmentViewComponent = new FragmentViewComponent(fullPath, packageName, screenName, shouldCreateWiring);
         FragmentPresenterComponent fragmentPresenterComponent = new FragmentPresenterComponent(fullPath, packageName, screenName, shouldCreateWiring);
+        LayoutComponent layoutComponent = new LayoutComponent(fullPath, packageName, screenName, false);
         boolean success = fragmentComponent.build(isJava);
         success = success && modelComponent.build(isJava)
                 && fragmentViewComponent.build(isJava)
-                && fragmentPresenterComponent.build(isJava);
+                && fragmentPresenterComponent.build(isJava)
+                && layoutComponent.build();
         success = updateGradle(rootFolder, success);
-        checkSuccessOrRollback(rootFolder, success, fragmentComponent, modelComponent, fragmentViewComponent, fragmentPresenterComponent);
+        if (!success) {
+            rollback(rootFolder, fragmentComponent, modelComponent, fragmentViewComponent, fragmentPresenterComponent, layoutComponent);
+        }
         return success;
     }
 
@@ -39,15 +44,15 @@ public class FragmentMvpBuilder extends MvpBuilder {
         return success;
     }
 
-    private void checkSuccessOrRollback(VirtualFile rootFolder, boolean success, BaseComponent activityComponent,
-                                        BaseComponent modelComponent, BaseComponent viewComponent, BaseComponent presenterComponent) {
-        if (!success) {
-            activityComponent.rollback();
-            modelComponent.rollback();
-            viewComponent.rollback();
-            presenterComponent.rollback();
-            GradleUtils.restoreGradleFile(savedGradleFile, rootFolder);
-        }
+    private void rollback(VirtualFile rootFolder, BaseComponent activityComponent,
+                          BaseComponent modelComponent, BaseComponent viewComponent, BaseComponent presenterComponent,
+                          LayoutComponent layoutComponent) {
+        activityComponent.rollback();
+        modelComponent.rollback();
+        viewComponent.rollback();
+        presenterComponent.rollback();
+        layoutComponent.rollback();
+        GradleUtils.restoreGradleFile(savedGradleFile, rootFolder);
     }
 }
 

@@ -1,4 +1,4 @@
-package com.nerdscorner.mvp.utils.busevents;
+package com.nerdscorner.mvp.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,6 +11,7 @@ public class FileCreator {
 
     private static final String PACKAGE_NAME_KEY = "$PACKAGE_NAME$";
     private static final String SCREEN_NAME_KEY = "$SCREEN_NAME$";
+    private static final String LAYOUT_NAME_KEY = "$LAYOUT_NAME$";
 
     public static void createFile(InputStream inputStream, File file, String basePackage, String screenName) throws IOException {
         if (!file.exists()) {
@@ -25,7 +26,8 @@ public class FileCreator {
             String parsedContent = baseComponentContent
                     .toString()
                     .replace(PACKAGE_NAME_KEY, basePackage)
-                    .replace(SCREEN_NAME_KEY, screenName);
+                    .replace(SCREEN_NAME_KEY, screenName)
+                    .replace(LAYOUT_NAME_KEY, StringUtils.replaceCamelCaseWithSnakeCase(screenName));
 
             file.getParentFile().mkdirs();
             FileWriter fileWriter = new FileWriter(file);
