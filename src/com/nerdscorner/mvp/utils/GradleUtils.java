@@ -16,7 +16,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.vfs.VirtualFile;
 
 public final class GradleUtils {
-    private static final String LATEST_EVENTS_LIB_VERSION = "5.3.0";
+    private static final String LATEST_EVENTS_LIB_VERSION = "6.0.0";
 
     public static final String MVP_LIB_EVENTS_DEPENDENCY_PKG = "'com.nerdscorner.mvp:events:";
     public static final String MVP_LIB_EVENTS_DEPENDENCY = MVP_LIB_EVENTS_DEPENDENCY_PKG + LATEST_EVENTS_LIB_VERSION + "'";

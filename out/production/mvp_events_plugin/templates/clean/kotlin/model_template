@@ -2,4 +2,6 @@ package $PACKAGE_NAME$.ui.mvp.model
 
 import com.nerdscorner.mvplib.events.model.BaseEventsModel
 
-class $SCREEN_NAME$Model : BaseEventsModel()
+class $SCREEN_NAME$Model : BaseEventsModel() {
+
+}

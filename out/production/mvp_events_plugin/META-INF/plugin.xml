@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.nerdscorner.mvp</id>
     <name>MVP Creator plugin</name>
-    <version>2.2.0</version>
+    <version>2.3.0</version>
     <vendor email="diego@marcher.com.uy" url="http://www.marcher.com.uy/">Nerd's Corner</vendor>
 
     <description><![CDATA[
@@ -17,7 +17,7 @@
 
     <change-notes><![CDATA[
       Updated gradle dependency versions
-      Updated templates to support layout creation for an end to end wiring
+      Updated templates to support View Utils plugin
     ]]>
     </change-notes>
 
