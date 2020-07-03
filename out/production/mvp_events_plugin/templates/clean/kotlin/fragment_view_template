@@ -1,9 +1,0 @@
-package $PACKAGE_NAME$.ui.mvp.view
-
-import androidx.fragment.app.Fragment
-
-import com.nerdscorner.mvplib.events.view.BaseFragmentView
-
-class $SCREEN_NAME$View(fragment: Fragment) : BaseFragmentView(fragment) {
-
-}
