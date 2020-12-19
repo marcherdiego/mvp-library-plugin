@@ -28,7 +28,7 @@
     <extensions defaultExtensionNs="com.intellij">
     </extensions>
     <actions>
-        <action id="Create Btn" class="com.nerdscorner.mvp.CreateMvp" text="Create MVP skeleton">
+        <action id="Create Btn" class="com.nerdscorner.mvp.CreateMvp" text="Create MVP Skeleton">
             <keyboard-shortcut keymap="$default" first-keystroke="shift meta M" second-keystroke="shift ctrl M"/>
             <add-to-group group-id="ToolsMenu" anchor="first"/>
         </action>
