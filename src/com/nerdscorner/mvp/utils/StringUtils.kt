@@ -7,18 +7,12 @@ object StringUtils {
     private const val HYPHEN = "_"
 
     @JvmStatic
-    fun isEmpty(text: String?): Boolean {
-        return text == null || text.isEmpty()
-    }
+    fun isEmpty(text: String?) = text == null || text.isEmpty()
 
     @JvmStatic
     fun asCamelCase(text: String?): String? {
-        var text = text
-        text = replaceSpacesWithCamelCase(text)
-        return if (text.isNullOrEmpty()) {
-            text
-        } else {
-            text.substring(0, 1).toUpperCase() + text.substring(1)
+        return replaceSpacesWithCamelCase(text)?.also {
+            it.substring(0, 1).toUpperCase() + it.substring(1)
         }
     }
 
@@ -28,8 +22,7 @@ object StringUtils {
         }
         val stringBuilder = StringBuilder()
         var shouldCapitalizeLetter = false
-        for (i in 0 until text.length) {
-            val letter = text[i]
+        for (letter in text) {
             when {
                 letter == SPACE_CHAR -> shouldCapitalizeLetter = true
                 shouldCapitalizeLetter -> {
@@ -47,7 +40,7 @@ object StringUtils {
             return text
         }
         val stringBuilder = StringBuilder()
-        for (i in 0 until text.length) {
+        for (i in text.indices) {
             val letter = text[i]
             if (Character.isUpperCase(letter)) {
                 if (i > 0) {

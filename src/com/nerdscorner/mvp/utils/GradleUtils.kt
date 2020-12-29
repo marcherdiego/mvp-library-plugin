@@ -11,9 +11,10 @@ import java.io.InputStreamReader
 import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.vfs.VirtualFile
+import com.nerdscorner.mvp.domain.ExecutionResult
 
 object GradleUtils {
-    private const val LATEST_EVENTS_LIB_VERSION = "8.0.0"
+    private const val LATEST_EVENTS_LIB_VERSION = "8.0.1"
 
     const val MVP_LIB_EVENTS_DEPENDENCY_PKG = "'com.nerdscorner.mvp:events:"
     const val MVP_LIB_EVENTS_DEPENDENCY = "$MVP_LIB_EVENTS_DEPENDENCY_PKG$LATEST_EVENTS_LIB_VERSION'"
@@ -29,7 +30,7 @@ object GradleUtils {
     private const val SEEKING = 0
     private const val DONE = 2
 
-    fun addDependency(rootFolder: VirtualFile, dependency: String): Boolean {
+    fun addDependency(rootFolder: VirtualFile, dependency: String): ExecutionResult {
         try {
             val appGradleFile = getAppGradleFile(rootFolder)
             val gradleFileContent = getGradleFileContent(rootFolder)
@@ -61,12 +62,11 @@ object GradleUtils {
             val fileWriter = FileWriter(File(getAppGradleFile(rootFolder)?.path))
             fileWriter.write(gradleFileBuilder.toString())
             fileWriter.close()
-            return true
-        } catch (e: IOException) {
+            return ExecutionResult(true)
+        } catch (e: Exception) {
             e.printStackTrace()
+            return ExecutionResult(false, e.message)
         }
-
-        return false
     }
 
     fun getGradleFileContent(rootFolder: VirtualFile): String? {

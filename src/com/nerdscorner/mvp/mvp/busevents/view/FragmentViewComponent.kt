@@ -3,7 +3,8 @@ package com.nerdscorner.mvp.mvp.busevents.view
 import com.nerdscorner.mvp.mvp.busevents.base.MvpComponent
 import java.io.File
 
-class FragmentViewComponent(basePath: String, basePackage: String, screenName: String, shouldCreateWiring: Boolean) : MvpComponent(basePath, basePackage, screenName, VIEW_TEMPLATE, screenName + VIEW_JAVA, shouldCreateWiring) {
+class FragmentViewComponent(basePath: String, basePackage: String, screenName: String, shouldCreateWiring: Boolean)
+    : MvpComponent(basePath, basePackage, screenName, VIEW_TEMPLATE, screenName + VIEW_JAVA, shouldCreateWiring) {
 
     override fun relativePath() = RELATIVE_PATH
 

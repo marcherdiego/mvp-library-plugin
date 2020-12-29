@@ -1,5 +1,6 @@
 package com.nerdscorner.mvp.mvp.busevents.layout
 
+import com.nerdscorner.mvp.domain.ExecutionResult
 import com.nerdscorner.mvp.mvp.BaseComponent
 import com.nerdscorner.mvp.utils.FileCreator
 import com.nerdscorner.mvp.utils.StringUtils
@@ -14,21 +15,25 @@ class LayoutComponent(basePath: String, private val basePackage: String, private
     init {
         val packagePath = basePackage.replace(DOT, File.separator)
         this.basePath = basePath
-                .replace(packagePath, BLANK)
-                .replace(SOURCE_PATH, BLANK) + "/res/layout"
-        this.suffix = if (isActivity) ACTIVITY_SUFFIX else FRAGMENT_SUFFIX
+                                .replace(packagePath, BLANK)
+                                .replace(SOURCE_PATH, BLANK) + "/res/layout"
+        this.suffix = if (isActivity) {
+            ACTIVITY_SUFFIX
+        } else {
+            FRAGMENT_SUFFIX
+        }
     }
 
-    fun build(): Boolean {
-        try {
+    fun build(): ExecutionResult {
+        return try {
             val template = javaClass.getResourceAsStream(LAYOUT_TEMPLATE)
             val component = File(basePath, StringUtils.replaceCamelCaseWithSnakeCase(screenName) + suffix)
             FileCreator.createFile(template, component, basePackage, screenName)
-            return true
+            ExecutionResult(true)
         } catch (e: Exception) {
             e.printStackTrace()
+            ExecutionResult(false, e.message)
         }
-        return false
     }
 
     override fun rollback() {

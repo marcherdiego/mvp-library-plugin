@@ -15,26 +15,28 @@ object FileCreator {
 
     @Throws(IOException::class)
     fun createFile(inputStream: InputStream, file: File, basePackage: String, screenName: String) {
-        if (file.exists().not()) {
-            val reader = BufferedReader(InputStreamReader(inputStream))
-            val baseComponentContent = StringBuilder()
-            for (line in reader.lines()) {
-                baseComponentContent
-                        .append(line)
-                        .append(System.lineSeparator())
-            }
-            //Parameters replacer
-            val parsedContent = baseComponentContent
-                    .toString()
-                    .replace(PACKAGE_NAME_KEY, basePackage)
-                    .replace(SCREEN_NAME_KEY, screenName)
-                    .replace(LAYOUT_NAME_KEY, StringUtils.replaceCamelCaseWithSnakeCase(screenName))
+        if (file.exists()) {
+            throw IOException("File ${file.name} already exist")
+        }
+        val reader = BufferedReader(InputStreamReader(inputStream))
+        val baseComponentContent = StringBuilder()
+        for (line in reader.lines()) {
+            baseComponentContent
+                    .append(line)
+                    .append(System.lineSeparator())
+        }
+        //Parameters replacer
+        val parsedContent = baseComponentContent
+                .toString()
+                .replace(PACKAGE_NAME_KEY, basePackage)
+                .replace(SCREEN_NAME_KEY, screenName)
+                .replace(LAYOUT_NAME_KEY, StringUtils.replaceCamelCaseWithSnakeCase(screenName))
 
-            file.parentFile.mkdirs()
-            FileWriter(file).apply {
-                write(parsedContent)
-                close()
-            }
+        file.parentFile.mkdirs()
+        FileWriter(file).apply {
+            write(parsedContent)
+            close()
         }
     }
+
 }

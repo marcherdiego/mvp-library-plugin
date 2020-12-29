@@ -9,9 +9,9 @@ import java.io.InputStreamReader
 
 import javax.xml.bind.JAXBContext
 import javax.xml.bind.JAXBException
-import javax.xml.bind.Unmarshaller
 
 import com.intellij.openapi.vfs.VirtualFile
+import com.nerdscorner.mvp.domain.ExecutionResult
 import com.nerdscorner.mvp.domain.manifest.Manifest
 import com.nerdscorner.mvp.mvp.busevents.activity.ActivityComponent
 
@@ -69,11 +69,9 @@ object ManifestUtils {
         return null
     }
 
-    fun addActivityToManifest(packageName: String, activityName: String, sourceFolder: VirtualFile): Boolean {
-        var packageName = packageName
-        var activityName = activityName
-        packageName += ActivityComponent.PACKAGE_SUFFIX
-        activityName += ActivityComponent.ACTIVITY_SUFFIX
+    fun addActivityToManifest(pkgName: String, screenName: String, sourceFolder: VirtualFile): ExecutionResult {
+        val packageName = "$pkgName${ActivityComponent.PACKAGE_SUFFIX}"
+        val activityName = "$screenName${ActivityComponent.ACTIVITY_SUFFIX}"
         try {
             sourceFolder.refresh(false, true)
             val manifestFile = sourceFolder.parent.findChild(MANIFEST_FILE_NAME)
@@ -88,10 +86,10 @@ object ManifestUtils {
                     continue
                 }
                 if (line.contains(XML_ACTIVITY_START_TAG)) {
-                    if (line.contains(XML_CLOSE_TAG)) {
-                        state = appendActivityAndDone(packageName, activityName, DONE, manifestFileBuilder)
+                    state = if (line.contains(XML_CLOSE_TAG)) {
+                        appendActivityAndDone(packageName, activityName, DONE, manifestFileBuilder)
                     } else {
-                        state = WAITING_FOR_ACTIVITY_CLOSE
+                        WAITING_FOR_ACTIVITY_CLOSE
                     }
                 } else {
                     if (state == WAITING_FOR_ACTIVITY_CLOSE && line.contains(XML_CLOSE_TAG)) {
@@ -102,12 +100,11 @@ object ManifestUtils {
             val fileWriter = FileWriter(File(sourceFolder.path + UP_FOLDER_PATH + MANIFEST_FILE_NAME))
             fileWriter.write(manifestFileBuilder.toString())
             fileWriter.close()
-            return true
-        } catch (e: IOException) {
+            return ExecutionResult(true)
+        } catch (e: Exception) {
             e.printStackTrace()
+            return ExecutionResult(false, e.message)
         }
-
-        return false
     }
 
     private fun appendActivityAndDone(packageName: String, activityName: String, state: Int, manifestFileBuilder: StringBuilder): Int {
@@ -132,6 +129,5 @@ object ManifestUtils {
         } catch (e: IOException) {
             e.printStackTrace()
         }
-
     }
 }

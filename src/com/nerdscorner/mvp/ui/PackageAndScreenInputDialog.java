@@ -17,6 +17,7 @@ import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.nerdscorner.mvp.domain.ExecutionResult;
 import com.nerdscorner.mvp.domain.manifest.Manifest;
 import com.nerdscorner.mvp.mvp.ActivityMvpBuilder;
 import com.nerdscorner.mvp.mvp.FragmentMvpBuilder;
@@ -112,16 +113,20 @@ public class PackageAndScreenInputDialog extends JDialog {
         } else {
             mvpBuilder = new FragmentMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected(), shouldCreateWiring);
         }
-        boolean success = mvpBuilder.build(rootFolder, basePath, basePackage, screenName);
+        ExecutionResult executionResult = mvpBuilder.build(rootFolder, basePath, basePackage, screenName);
 
-        if (success && shouldIncludeLibraryDependency) {
+        if (executionResult.getSuccessful() && shouldIncludeLibraryDependency) {
             GradleUtils.performSync(actionEvent);
         }
 
         onCancel();
 
         //Show result
-        ResultDialog resultDialog = new ResultDialog(success ? "MVP created successfully" : "An error occurred while creating files.");
+        ResultDialog resultDialog = new ResultDialog(
+                executionResult.getSuccessful() ?
+                        "MVP created successfully" :
+                        "An error occurred while creating files:" + executionResult.getChainedMessages()
+        );
         resultDialog.pack();
         resultDialog.setLocationRelativeTo(null);
         resultDialog.setTitle("MVP Builder");
