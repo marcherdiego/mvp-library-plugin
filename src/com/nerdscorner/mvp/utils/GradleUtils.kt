@@ -14,7 +14,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.nerdscorner.mvp.domain.ExecutionResult
 
 object GradleUtils {
-    private const val LATEST_EVENTS_LIB_VERSION = "8.0.1"
+    private const val LATEST_EVENTS_LIB_VERSION = "8.1.0"
 
     const val MVP_LIB_EVENTS_DEPENDENCY_PKG = "'com.nerdscorner.mvp:events:"
     const val MVP_LIB_EVENTS_DEPENDENCY = "$MVP_LIB_EVENTS_DEPENDENCY_PKG$LATEST_EVENTS_LIB_VERSION'"

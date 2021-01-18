@@ -1,26 +1,29 @@
 <idea-plugin>
     <id>com.nerdscorner.mvp</id>
     <name>MVP Creator</name>
-    <version>2.5.2</version>
+    <version>2.6.0</version>
     <vendor email="diego@marcher.com.uy" url="http://www.marcher.com.uy/">Nerd's Corner</vendor>
 
     <description><![CDATA[
-      Small plugin to build MVP skeletons and avoid boilerplate.<br>
-      This plugin if highly tied to this <em>MVP library</em>, check it out: <br>
-      https://github.com/marcherdiego/android_mvp
+        Small plugin to build MVP skeletons and avoid boilerplate.<br>
+        This plugin if highly tied to this <em>MVP library</em>, check it out: <a href="https://github.com/marcherdiego/android_mvp">Library Source</a>
 
-      Quickly create nice and tidy Android Applications using this architecture pattern and forget all the boilerplate code you are tired of writing over and over again.
-      You can also create your MVP with a sample wiring code to understand it even faster!
+        <ul>
+            <li>Quickly create nice and tidy Android Applications using this architecture pattern and forget all the boilerplate code you are tired of writing over and over again.</li>
+            <li>You can also create your MVP with a sample wiring code to understand it even faster!</li>
+        </ul>
 
-      This plugin supports both Java and Kotlin and adapts to any kind of applications! Give it a try!
+        This plugin supports both Java and Kotlin and adapts to any kind of applications! Give it a try!
     ]]></description>
 
     <change-notes><![CDATA[
-      Updated gradle dependency version
-      Updated templates to support View Utils plugin
-      More kotlin migration and optimizations!
-      Fixed AndroidX annotations import issue
-      More error output log
+        <ul>
+            <li>Updated gradle dependency version</li>
+            <li>Updated templates to support View Utils plugin</li>
+            <li>More kotlin migration and optimizations!</li>
+            <li>Fixed AndroidX annotations import issue</li>
+            <li>More error output log</li>
+        </ul>
     ]]>
     </change-notes>
 

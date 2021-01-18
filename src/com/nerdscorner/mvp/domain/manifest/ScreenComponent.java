@@ -5,5 +5,5 @@ public abstract class ScreenComponent {
 
     public abstract String getName();
 
-    public static final String NONE = "None";
+    static final String NONE = "None";
 }

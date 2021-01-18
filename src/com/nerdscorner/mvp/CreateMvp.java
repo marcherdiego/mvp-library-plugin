@@ -28,8 +28,7 @@ public class CreateMvp extends AnAction {
         } else {
             PackageAndScreenInputDialog packageAndScreenInputDialog = new PackageAndScreenInputDialog(
                     project,
-                    projectRootManager
-                            .getContentSourceRoots()[0],
+                    projectRootManager.getContentSourceRoots()[0],
                     actionEvent
             );
             packageAndScreenInputDialog.pack();
