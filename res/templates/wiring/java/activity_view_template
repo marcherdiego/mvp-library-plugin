@@ -1,10 +1,10 @@
 package $PACKAGE_NAME$.ui.mvp.view;
 
 import com.nerdscorner.mvplib.events.view.BaseActivityView;
-import com.nerdscorner.mvplib.events.activity.BaseActivity;
+import $PACKAGE_NAME$.ui.activities.$SCREEN_NAME$Activity;
 
 public class $SCREEN_NAME$View extends BaseActivityView {
-    public $SCREEN_NAME$View(BaseActivity<?> activity) {
+    public $SCREEN_NAME$View($SCREEN_NAME$Activity activity) {
         super(activity);
     }
 
