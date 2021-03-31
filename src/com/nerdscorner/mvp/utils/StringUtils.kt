@@ -4,7 +4,7 @@ import com.intellij.codeInsight.template.impl.TemplateSettings.SPACE_CHAR
 
 object StringUtils {
 
-    private const val HYPHEN = "_"
+    private const val UNDERSCORE = "_"
 
     @JvmStatic
     fun isEmpty(text: String?) = text == null || text.isEmpty()
@@ -44,7 +44,7 @@ object StringUtils {
             val letter = text[i]
             if (Character.isUpperCase(letter)) {
                 if (i > 0) {
-                    stringBuilder.append(HYPHEN)
+                    stringBuilder.append(UNDERSCORE)
                 }
                 stringBuilder.append(letter.toString().toLowerCase())
             } else {

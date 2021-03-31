@@ -7,11 +7,15 @@ import com.nerdscorner.mvp.mvp.busevents.layout.LayoutComponent
 import com.nerdscorner.mvp.mvp.busevents.model.ModelComponent
 import com.nerdscorner.mvp.mvp.busevents.presenter.ActivityPresenterComponent
 import com.nerdscorner.mvp.mvp.busevents.view.ActivityViewComponent
-import com.nerdscorner.mvp.utils.GradleUtils
+import com.nerdscorner.mvp.utils.gradle.GradleUtils
 import com.nerdscorner.mvp.utils.ManifestUtils
 
-class ActivityMvpBuilder(shouldIncludeLibraryDependency: Boolean, isJava: Boolean, shouldCreateWiring: Boolean) :
-        MvpBuilder(shouldIncludeLibraryDependency, isJava, shouldCreateWiring) {
+class ActivityMvpBuilder(
+        shouldIncludeLibraryDependency: Boolean,
+        shouldIncludeCoroutinesLibraryDependency: Boolean,
+        isJava: Boolean,
+        shouldCreateWiring: Boolean
+) : MvpBuilder(shouldIncludeLibraryDependency, shouldIncludeCoroutinesLibraryDependency, isJava, shouldCreateWiring) {
 
     private var savedManifest: String? = null
     private var activityFileCreated = ExecutionResult.EMPTY

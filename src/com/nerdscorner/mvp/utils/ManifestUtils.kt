@@ -87,13 +87,13 @@ object ManifestUtils {
                 }
                 if (line.contains(XML_ACTIVITY_START_TAG)) {
                     state = if (line.contains(XML_CLOSE_TAG)) {
-                        appendActivityAndDone(packageName, activityName, DONE, manifestFileBuilder)
+                        appendActivity(packageName, activityName, manifestFileBuilder)
                     } else {
                         WAITING_FOR_ACTIVITY_CLOSE
                     }
                 } else {
                     if (state == WAITING_FOR_ACTIVITY_CLOSE && line.contains(XML_CLOSE_TAG)) {
-                        state = appendActivityAndDone(packageName, activityName, DONE, manifestFileBuilder)
+                        state = appendActivity(packageName, activityName, manifestFileBuilder)
                     }
                 }
             }
@@ -107,14 +107,14 @@ object ManifestUtils {
         }
     }
 
-    private fun appendActivityAndDone(packageName: String, activityName: String, state: Int, manifestFileBuilder: StringBuilder): Int {
+    private fun appendActivity(packageName: String, activityName: String, manifestFileBuilder: StringBuilder): Int {
         manifestFileBuilder.append(
                 MANIFEST_ACTIVITY_TEMPLATE
                         .replace(PACKAGE_NAME, packageName)
                         .replace(ACTIVITY_NAME, activityName)
                         .replace(NEW_LINE, System.lineSeparator())
         ).append(System.lineSeparator())
-        return state
+        return DONE
     }
 
     fun restoreManifest(savedManifest: String?, projectRoot: String) {

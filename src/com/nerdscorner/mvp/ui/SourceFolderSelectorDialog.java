@@ -17,6 +17,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.nerdscorner.mvp.domain.VirtualFileWrapper;
 import com.nerdscorner.mvp.utils.Constants;
 
 public class SourceFolderSelectorDialog extends JDialog {
@@ -27,7 +28,7 @@ public class SourceFolderSelectorDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JList<VirtualFile> sourceFolders;
+    private JList<VirtualFileWrapper> sourceFolders;
 
     public SourceFolderSelectorDialog(Project project, AnActionEvent actionEvent) {
         this.project = project;
@@ -57,7 +58,7 @@ public class SourceFolderSelectorDialog extends JDialog {
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);
         String sourceFolderName = propertiesComponent.getValue(PROPERTY_SOURCE_FOLDER_NAME, "");
 
-        DefaultListModel<VirtualFile> model = new DefaultListModel<>();
+        DefaultListModel<VirtualFileWrapper> model = new DefaultListModel<>();
         VirtualFile[] sourceFolders = ProjectRootManager.getInstance(project).getContentSourceRoots();
         int currentIndex = 0;
         int selectedIndex = 0;
@@ -68,7 +69,7 @@ public class SourceFolderSelectorDialog extends JDialog {
             if (sourceFolder.getPath().equals(sourceFolderName)) {
                 selectedIndex = currentIndex;
             }
-            model.addElement(sourceFolder);
+            model.addElement(new VirtualFileWrapper(project.getName(), sourceFolder));
             currentIndex++;
         }
         this.sourceFolders.setModel(model);
@@ -78,7 +79,7 @@ public class SourceFolderSelectorDialog extends JDialog {
     private void onOK() {
         onCancel();
 
-        VirtualFile baseFolder = sourceFolders.getSelectedValue();
+        VirtualFile baseFolder = sourceFolders.getSelectedValue().getVirtualFile();
 
         //Save state
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance(project);

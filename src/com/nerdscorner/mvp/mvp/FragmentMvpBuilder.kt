@@ -7,10 +7,14 @@ import com.nerdscorner.mvp.mvp.busevents.layout.LayoutComponent
 import com.nerdscorner.mvp.mvp.busevents.model.ModelComponent
 import com.nerdscorner.mvp.mvp.busevents.presenter.FragmentPresenterComponent
 import com.nerdscorner.mvp.mvp.busevents.view.FragmentViewComponent
-import com.nerdscorner.mvp.utils.GradleUtils
+import com.nerdscorner.mvp.utils.gradle.GradleUtils
 
-class FragmentMvpBuilder(shouldIncludeLibraryDependency: Boolean, isJava: Boolean, shouldCreateWiring: Boolean) :
-        MvpBuilder(shouldIncludeLibraryDependency, isJava, shouldCreateWiring) {
+class FragmentMvpBuilder(
+        shouldIncludeLibraryDependency: Boolean,
+        shouldIncludeCoroutinesLibraryDependency: Boolean,
+        isJava: Boolean,
+        shouldCreateWiring: Boolean
+) : MvpBuilder(shouldIncludeLibraryDependency, shouldIncludeCoroutinesLibraryDependency, isJava, shouldCreateWiring) {
     private var fragmentFileCreated = ExecutionResult.EMPTY
 
     override fun build(rootFolder: VirtualFile, fullPath: String, packageName: String, screenName: String): ExecutionResult {

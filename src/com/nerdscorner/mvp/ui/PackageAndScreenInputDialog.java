@@ -24,12 +24,13 @@ import com.nerdscorner.mvp.mvp.FragmentMvpBuilder;
 import com.nerdscorner.mvp.mvp.MvpBuilder;
 import com.nerdscorner.mvp.utils.Constants;
 import com.nerdscorner.mvp.utils.Constants.Properties;
-import com.nerdscorner.mvp.utils.GradleUtils;
+import com.nerdscorner.mvp.utils.gradle.GradleUtils;
 import com.nerdscorner.mvp.utils.ManifestUtils;
 import com.nerdscorner.mvp.utils.StringUtils;
 
 
-import static com.nerdscorner.mvp.utils.GradleUtils.MVP_LIB_EVENTS_DEPENDENCY_PKG;
+import static com.nerdscorner.mvp.utils.gradle.GradleUtils.COROUTINES_LIB_EVENTS_DEPENDENCY_PKG;
+import static com.nerdscorner.mvp.utils.gradle.GradleUtils.MVP_LIB_EVENTS_DEPENDENCY_PKG;
 
 public class PackageAndScreenInputDialog extends JDialog {
     private static final String ACTIVITY = "Activity";
@@ -45,6 +46,7 @@ public class PackageAndScreenInputDialog extends JDialog {
     private javax.swing.JTextField packageName;
     private javax.swing.JTextField screenName;
     private JCheckBox includeLibraryDependency;
+    private JCheckBox includeCoroutinesLibraryDependency;
     private JRadioButton activityRadioButton;
     private JRadioButton fragmentRadioButton;
     private JRadioButton javaRadioButton;
@@ -91,6 +93,7 @@ public class PackageAndScreenInputDialog extends JDialog {
     private void onOK() {
         boolean activity = activityRadioButton.isSelected();
         boolean shouldIncludeLibraryDependency = includeLibraryDependency.isSelected() && !isMvpLibInstalled();
+        boolean shouldIncludeCoroutinesLibraryDependency = includeCoroutinesLibraryDependency.isSelected() && !isCoroutinesLibInstalled();
         boolean shouldCreateWiring = addSampleCode.isSelected();
 
         String basePackage = packageName.getText();
@@ -109,13 +112,23 @@ public class PackageAndScreenInputDialog extends JDialog {
         String basePath = rootFolder.getPath() + File.separator + basePackage.replace(".", File.separator);
         MvpBuilder mvpBuilder;
         if (activity) {
-            mvpBuilder = new ActivityMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected(), shouldCreateWiring);
+            mvpBuilder = new ActivityMvpBuilder(
+                    shouldIncludeLibraryDependency,
+                    shouldIncludeCoroutinesLibraryDependency,
+                    javaRadioButton.isSelected(),
+                    shouldCreateWiring
+            );
         } else {
-            mvpBuilder = new FragmentMvpBuilder(shouldIncludeLibraryDependency, javaRadioButton.isSelected(), shouldCreateWiring);
+            mvpBuilder = new FragmentMvpBuilder(
+                    shouldIncludeLibraryDependency,
+                    shouldIncludeCoroutinesLibraryDependency,
+                    javaRadioButton.isSelected(),
+                    shouldCreateWiring
+            );
         }
         ExecutionResult executionResult = mvpBuilder.build(rootFolder, basePath, basePackage, screenName);
 
-        if (executionResult.getSuccessful() && shouldIncludeLibraryDependency) {
+        if (executionResult.getSuccessful() && (shouldIncludeLibraryDependency || shouldIncludeCoroutinesLibraryDependency)) {
             GradleUtils.performSync(actionEvent);
         }
 
@@ -155,6 +168,10 @@ public class PackageAndScreenInputDialog extends JDialog {
 
     private boolean isMvpLibInstalled() {
         return GradleUtils.hasDependency(rootFolder, MVP_LIB_EVENTS_DEPENDENCY_PKG);
+    }
+
+    private boolean isCoroutinesLibInstalled() {
+        return GradleUtils.hasDependency(rootFolder, COROUTINES_LIB_EVENTS_DEPENDENCY_PKG);
     }
 
     private void saveInputStates() {
