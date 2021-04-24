@@ -3,6 +3,7 @@ package com.nerdscorner.mvp.utils
 object Constants {
     const val BUILD = "build"
     const val GENERATED = "generated"
+    const val RES = "res"
 
     object Properties {
         const val PROPERTY_PACKAGE_NAME = "package_name"

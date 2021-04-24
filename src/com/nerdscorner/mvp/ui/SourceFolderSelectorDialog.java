@@ -62,14 +62,16 @@ public class SourceFolderSelectorDialog extends JDialog {
         VirtualFile[] sourceFolders = ProjectRootManager.getInstance(project).getContentSourceRoots();
         int currentIndex = 0;
         int selectedIndex = 0;
+        String projectPath = project.getPresentableUrl();
         for (VirtualFile sourceFolder : sourceFolders) {
-            if (sourceFolder.getUrl().contains(Constants.GENERATED) || sourceFolder.getUrl().contains(Constants.BUILD)) {
+            String folderPath = sourceFolder.getUrl();
+            if (folderPath.contains(Constants.GENERATED) || folderPath.contains(Constants.BUILD) || folderPath.endsWith(Constants.RES)) {
                 continue;
             }
             if (sourceFolder.getPath().equals(sourceFolderName)) {
                 selectedIndex = currentIndex;
             }
-            model.addElement(new VirtualFileWrapper(project.getName(), sourceFolder));
+            model.addElement(new VirtualFileWrapper(projectPath, sourceFolder));
             currentIndex++;
         }
         this.sourceFolders.setModel(model);
