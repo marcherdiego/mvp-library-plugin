@@ -1,3 +1,8 @@
+![JetBrains Plugins](https://img.shields.io/jetbrains/plugin/r/rating/10605) 
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/marcherdiego/mvp-library-plugin)
+![Downloads](https://img.shields.io/jetbrains/plugin/d/10605)
+
+
 # MVP Library Plugin for Intellij
 
 [![Get from Marketplace](button.png "Download plugin")](https://plugins.jetbrains.com/plugin/10605-mvp-creator-plugin)
