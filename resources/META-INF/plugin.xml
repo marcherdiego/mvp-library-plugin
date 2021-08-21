@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.nerdscorner.mvp</id>
     <name>MVP Creator</name>
-    <version>2.7.1</version>
+    <version>2.8.0</version>
     <vendor email="diego@marcher.com.uy" url="http://www.marcher.com.uy/">Nerd's Corner</vendor>
 
     <description><![CDATA[
@@ -23,6 +23,7 @@
             <li>More kotlin migration and optimizations!</li>
             <li>Fixed AndroidX annotations import issue</li>
             <li>More error output log</li>
+            <li>Added dynamically fetched latest dependency version</li>
         </ul>
     ]]>
     </change-notes>
@@ -39,4 +40,9 @@
             <add-to-group group-id="ToolsMenu" anchor="first"/>
         </action>
     </actions>
+    <application-components>
+        <component>
+            <implementation-class>com.nerdscorner.mvp.MyApplicationComponent</implementation-class>
+        </component>
+    </application-components>
 </idea-plugin>

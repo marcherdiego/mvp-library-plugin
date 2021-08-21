@@ -25,10 +25,10 @@ abstract class MvpBuilder(private val shouldIncludeLibraryDependency: Boolean,
             savedGradleFile = GradleUtils.getGradleFileContent(rootFolder)
             val dependenciesManager = DependenciesManager(rootFolder)
             if (includeMainLib) {
-                dependenciesManager.addDependency(GradleUtils.MVP_LIB_EVENTS_DEPENDENCY)
+                dependenciesManager.addDependency(GradleUtils.getLatestEventsLibVersion())
             }
             if (includeCoroutines) {
-                dependenciesManager.addDependency(GradleUtils.COROUTINES_LIB_EVENTS_DEPENDENCY)
+                dependenciesManager.addDependency(GradleUtils.getLatestCoroutinesLibVersion())
             }
             executionResult += dependenciesManager.saveGradleFile()
         }

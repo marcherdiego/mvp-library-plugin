@@ -1,5 +1,7 @@
 package com.nerdscorner.mvp;
 
+import org.jetbrains.annotations.NotNull;
+
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -7,11 +9,12 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.nerdscorner.mvp.ui.PackageAndScreenInputDialog;
 import com.nerdscorner.mvp.ui.SourceFolderSelectorDialog;
+import com.nerdscorner.mvp.utils.LibraryUtils;
 
 public class CreateMvp extends AnAction {
 
     @Override
-    public void actionPerformed(AnActionEvent actionEvent) {
+    public void actionPerformed(@NotNull AnActionEvent actionEvent) {
         Project project = getEventProject(actionEvent);
         if (project == null) {
             return;
@@ -44,5 +47,6 @@ public class CreateMvp extends AnAction {
     public void update(final AnActionEvent actionEvent) {
         final Project project = actionEvent.getData(CommonDataKeys.PROJECT);
         actionEvent.getPresentation().setVisible(project != null);
+        LibraryUtils.INSTANCE.fetchLatestVersions();
     }
 }
