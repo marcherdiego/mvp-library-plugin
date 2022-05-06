@@ -1,6 +1,7 @@
 package com.nerdscorner.mvp.utils
 
 import com.intellij.codeInsight.template.impl.TemplateSettings.SPACE_CHAR
+import java.util.*
 
 object StringUtils {
 
@@ -12,7 +13,7 @@ object StringUtils {
     @JvmStatic
     fun asCamelCase(text: String?): String? {
         return replaceSpacesWithCamelCase(text)?.also {
-            it.substring(0, 1).toUpperCase() + it.substring(1)
+            it.substring(0, 1).uppercase(Locale.getDefault()) + it.substring(1)
         }
     }
 
@@ -27,7 +28,7 @@ object StringUtils {
                 letter == SPACE_CHAR -> shouldCapitalizeLetter = true
                 shouldCapitalizeLetter -> {
                     shouldCapitalizeLetter = false
-                    stringBuilder.append(letter.toString().toUpperCase())
+                    stringBuilder.append(letter.toString().uppercase(Locale.getDefault()))
                 }
                 else -> stringBuilder.append(letter)
             }
@@ -46,7 +47,7 @@ object StringUtils {
                 if (i > 0) {
                     stringBuilder.append(UNDERSCORE)
                 }
-                stringBuilder.append(letter.toString().toLowerCase())
+                stringBuilder.append(letter.toString().lowercase())
             } else {
                 stringBuilder.append(letter)
             }

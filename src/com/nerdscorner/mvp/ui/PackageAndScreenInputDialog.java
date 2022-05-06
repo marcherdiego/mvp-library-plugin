@@ -98,7 +98,7 @@ public class PackageAndScreenInputDialog extends JDialog {
 
         String basePackage = packageName.getText();
         String screenName = StringUtils.asCamelCase(this.screenName.getText());
-        if (StringUtils.isEmpty(basePackage) || StringUtils.isEmpty(screenName)) {
+        if (StringUtils.isEmpty(basePackage) || screenName == null || StringUtils.isEmpty(screenName)) {
             //Show result
             ResultDialog resultDialog = new ResultDialog("Please enter a valid package and screen name");
             resultDialog.pack();

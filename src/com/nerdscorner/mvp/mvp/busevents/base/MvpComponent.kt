@@ -39,7 +39,7 @@ abstract class MvpComponent(
                         KOTLIN_EXTENSION
                     }
             )
-            val template = javaClass.getResourceAsStream(componentTemplate)
+            val template = javaClass.getResourceAsStream(componentTemplate) ?: return ExecutionResult(false)
             val component = File(absolutePath(), componentWithExtension)
             FileCreator.createFile(template, component, basePackage, screenName)
             return ExecutionResult(true)

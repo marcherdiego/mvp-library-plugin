@@ -26,7 +26,7 @@ class LayoutComponent(basePath: String, private val basePackage: String, private
 
     fun build(): ExecutionResult {
         return try {
-            val template = javaClass.getResourceAsStream(LAYOUT_TEMPLATE)
+            val template = javaClass.getResourceAsStream(LAYOUT_TEMPLATE) ?: return ExecutionResult(false)
             val component = File(basePath, StringUtils.replaceCamelCaseWithSnakeCase(screenName) + suffix)
             FileCreator.createFile(template, component, basePackage, screenName)
             ExecutionResult(true)
